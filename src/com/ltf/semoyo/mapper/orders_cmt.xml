@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="orders_cmt">
+<!-- 현 -->
+	<insert id="insert" parameterType="OrdersCmt">
+		INSERT INTO orders_cmt
+		(NO,USER_NO,OR_NO,CONTENT,REGDATE)
+		values(orders_cmt_seq.nextval,#{userNo},#{orNo},#{content},systimestamp)
+	</insert>
+
+	<select id="selectList" resultType="OrdersCmt" parameterType="hashmap">
+		select nickname, orNo, content, regdate
+FROM(select nickname, orNo, content, regdate, rownum r
+FROM(select u.nickname nickname, oc.or_no orNo, oc.content content, oc.regdate regdate
+		FROM orders_cmt oc, users u
+		WHERE oc.user_no = u.no
+		AND oc.or_no = #{orNo}
+		order by regdate desc))
+WHERE r BETWEEN #{start} AND #{end}
+	</select>
+<!-- 현 end -->
+</mapper>

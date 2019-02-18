@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tags">
+
+	<select id="selectTalkTagList" parameterType="int" resultType="Tag">
+		SELECT t.no no, t.type type, t.type_no typeNo, t.tag_no tagNo, r.no realTagsNo, r.name
+		FROM tags t, real_tags r
+		WHERE r.no = t.tag_no
+		AND t.type = 'C'
+		AND t.type_no = #{typeNo}
+	</select>
+	
+	<insert id="insertTalkTags" parameterType="Tag">
+		INSERT INTO tags(no, type, type_no, tag_no)
+		VALUES(tags_seq.nextval, 'C', #{typeNo}, #{tagNo})
+	</insert>
+
+<!-- 현 -->
+
+<select id="selectList" resultType="Tag" parameterType="int">
+		select t.type_no typeNo, r.name name
+		from tags t, real_tags r
+		WHERE r.no = t.tag_no
+		AND t.type_no = #{no}
+		AND type = 'R'
+
+	</select>
+
+<!-- 현 end-->
+	
+
+	<!-- 예빈 -->
+	<insert id="insert" parameterType="Tag">
+		<selectKey order="BEFORE"
+	 	keyProperty="no" resultType="int">
+			SELECT tags_seq.nextval
+			FROM dual
+		</selectKey>
+		INSERT INTO tags(no, type, type_no, tag_no)
+		VALUES(#{no}, 'R', #{typeNo}, #{tagNo})
+	</insert>
+
+</mapper>

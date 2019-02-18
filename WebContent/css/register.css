@@ -1,0 +1,113 @@
+
+ #registerPopup {
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+    width: 700px;
+    height: 700px;
+    left: 50%;
+    top: 50%;
+    margin: -350px 0  0 -350px;
+    display: none;
+    z-index: 3;
+}
+
+#registerPopup .row{
+    margin-top: 20px;
+}
+
+#registerPopup .profile input {
+    display: none;
+}
+
+#registerPopup #profileRow .delete {
+    width: 20px;
+    height: 20px;
+}
+
+#registerPopup #joinBox {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    margin: -210px 0 0 -220px;
+}
+
+#registerPopup #profileRow {
+    width: 150px;
+    height: 150px;
+    margin-left: 145px;
+}
+
+#registerPopup .row {
+    margin-top: 20px;
+}
+
+#registerPopup .label {
+    display: block;
+    width: 130px;
+    height: 20px;
+    font-size: 20px;
+    float: left;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+#registerPopup .row input {
+    width: 300px;
+    height: 35px;
+    padding-left: 8px;
+    font: 15px "Noto Sans KR", sans-serif;
+    outline: none;
+}
+
+#registerPopup .row input:focus {
+    border: 2px solid #16315c;
+}
+
+#registerPopup .msg {
+    display: none;
+}
+
+#registerPopup .btn {
+    position: absolute;
+    left: 260px;
+    bottom: -5px;
+    width: 130px;
+    height: 35px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#registerPopup .resetBtn {
+    background-color: #F5F5F5;
+    left: 400px;
+}
+
+#registerPopup .registerBtn {
+    background-color: #16315c;
+    color: white;
+}
+
+ #registerPopup .resetBtn:hover {
+     background-color: #FAFAFA;
+ }
+
+ #registerPopup .registerBtn:hover {
+     background-color: #1E4274;
+     color: white;
+ }
+
+#registerPopup #registerClose {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 4;
+    color: black;
+}

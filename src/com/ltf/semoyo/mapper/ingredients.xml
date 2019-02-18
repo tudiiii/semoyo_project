@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ingredients">
+
+	<select id="selectBaseList" parameterType="int" resultType="Ingredient">
+		select no, name, up_no upNo, image
+		from ingredients
+		where up_no = #{upNo}	
+	</select>
+	<select id="selectSearch" parameterType="String" resultType="Ingredient">
+		select no, name, up_no upNo, image
+		from ingredients
+		where no between 20 and 824
+		and name like #{string} 	
+	</select>
+
+	<!-- 예빈 -->
+	<select id="selectList" resultType="Ingredient">
+	
+		SELECT no, name
+		FROM ingredients
+		WHERE no >= 20
+		order by 1 asc
+	
+	</select>
+	<!-- 예빈 -->
+	<insert id="insert" parameterType="Ingredient">
+	
+	 
+			INSERT INTO ingredients(no, name)
+			VALUES(#{no}, #{name})
+	</insert>
+</mapper>

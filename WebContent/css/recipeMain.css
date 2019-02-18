@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+
+#background1080 {
+            font-family: "Noto Sans KR", sans-serif;
+            width: 1078px;
+            min-height: 1000px;
+            /*background: lavender;*/
+            margin: auto;
+            border-left: solid 1px #dedede;
+            border-right: solid 1px #dedede;
+            padding-top:10px;
+        }
+        button {
+            outline: none;
+        }
+
+        #categoryBox {
+            width: 1075px;
+            min-height: 50px;
+            /*background: lavender;*/
+            position: relative;
+            border: 2px solid #16315c;        }
+        .categoryTitle {
+            width: 55px;
+            height: 30px;
+            /*background: burlywood;*/
+            text-align: center;
+            line-height: 50px;
+            float: left;
+            font-size:18px;
+            font-weight: bold;
+            margin-left: 10px;
+            /*margin-right: 10px;*/
+
+        }
+        .category {
+            width: 1050px;
+            height: 50px;
+            /*background: chocolate;*/
+            line-height: 50px;
+            margin-left: 50px;
+            font-size: 15px;
+        }
+
+        .radio_button {
+            display: none;
+        }
+        .radio_label {
+            display: inline-block;
+            box-sizing: content-box;
+            padding: 0 5px 0 5px;
+            /*background: #cccccc;*/
+            text-align: center;
+            line-height: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            /*margin-left: 5px;*/
+        }
+        .radio_button:checked+.radio_label {
+            background: #16315c;
+            font-weight: bold;
+            color: white;
+        }
+        .radio_order_button {
+            display: none;
+        }
+        .order_label {
+            display: inline-block;
+            width: 70px;
+            height: 30px;
+            background: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            border: 2px solid #16315c;
+            margin-right: 10px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        .radio_order_button:checked+.order_label {
+            background: #16315c;
+            font-weight: bold;
+            color: white;
+        }
+
+        #refDiv {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        #loadRef {
+            width: 120px;
+            height: 40px;
+            font-size: 14px;
+            color: white;
+            background: #16315c;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        #loadRef:hover {
+            background: #1E4274;
+        }
+        #clearButton {
+            margin-top: 10px;
+            width: 80px;
+            height: 30px;
+            font-size: 14px;
+            color: white;
+            background: #16315c;
+            border: none;
+            border-radius: 5px;
+            margin-left: 980px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        #clearButton:hover {
+            background: #1E4274;
+        }
+        #closeButton {
+            width: 1079px;
+            height: 40px;
+            font-size: 18px;
+            color: white;
+            /*background: #16315c;*/
+            background: #16315c;
+            border: 2px solid #16315c;
+            border-top: none;
+            position: relative;
+            cursor: pointer;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        #closeButton:hover {
+            background: #1E4274;
+        }
+
+
+        #orderBox {
+            width: 1050px;
+            height: 40px;
+            /*background: coral;*/
+            line-height: 40px;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        #contentsList {
+            width: 1080px;
+            min-height: 50px;
+            /*background: lavender;*/
+            position: relative;
+            top:10px;
+            overflow: hidden;
+        }
+
+        .listBox {
+            width: 220px;
+            height: 300px;
+            background: white;
+            border: 2px solid #16315c;
+            border-radius: 5px;
+            position: relative;
+            float: left;
+            margin-left : 37px;
+            margin-top: 35px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+        }
+        .picBox {
+            width: 220px;
+            height: 180px;
+            /*background: azure;*/
+            border-bottom: #16315c solid 2px;
+        }
+        .pic {
+            width: 220px;
+            height: 180px;
+            position: absolute;
+            top:0;
+            left:0;
+            border-radius: 3px 3px 0 0;
+        }
+        .profilePicBox {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            /*background: aqua;*/
+            border: 2px solid #16315c;
+            border-radius: 70px;
+            top:130px;
+            left: 72px;
+        }
+        .pro_pic {
+            width: 70px;
+            height: 70px;
+            border: none;
+            border-radius: 70px;
+        }
+
+        .infoBox {
+            width: 220px;
+            height: 90px;
+            /*background: #cccccc;*/
+        }
+        .name {
+            width:220px;
+            font-size: 13px;
+            height: 45px;
+            text-align: center;
+            line-height: 70px;
+            /*background: #ffffff;*/
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .title {
+            width: 220px;
+            height: 45px;
+            /*background: aliceblue;*/
+            font-size: 15px;
+            text-align: center;
+            line-height: 45px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .infoBox2 {
+            width: 220px;
+            height: 30px;
+            /*background: aquamarine;*/
+        }
+        .time {
+            width: 70px;
+            height: 26px;
+            border-top: 2px solid #16315c;
+            border-right: 2px solid #16315c;
+            float: left;
+            font-size: 15px;
+            text-align: center;
+            line-height: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .easy {
+            width: 70px;
+            height: 26px;
+            border-top: 2px solid #16315c;
+            border-right: 2px solid #16315c;
+            float: left;
+            font-size: 15px;
+            text-align: center;
+            line-height: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .heart {
+            width: 76px;
+            height: 26px;
+            border-top: 2px solid #16315c;
+            float: left;
+            font-size: 15px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            
+        }
+        
+        .heart i {
+        	color:#EC7064;
+        }
+
+        #moreViewButton {
+            width: 1000px;
+            height: 40px;
+            font-size: 15px;
+            background: #16315c;
+            border-radius: 5px;
+            border: none;
+            margin-left: 40px;
+            margin-top : 20px;
+            margin-bottom: 20px;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        #moreViewButton:hover {
+            background: #1E4274;
+        }
+
+        #tag {
+            min-height: 50px;
+        }
+        
+         .circle{
+            width:40px;
+            height:20px;
+            border-radius: 15px;
+            border:5px solid #E57373;
+            background-color: #E57373;
+            z-index: 1;
+            text-align: center;
+            line-height: 20px;
+            position:absolute;
+            top:-10px;
+            right:-10px;
+            color:white;
+            font-size: 22px;
+        }
+        .circle_info{
+            width:30px;
+            height:20px;
+            border-radius: 15px;
+            border:5px solid #E57373;
+            background-color: #E57373;
+            z-index: 2;
+            text-align: center;
+            line-height: 20px;
+            position:absolute;
+            top:-5px;
+            right:-5px;
+            color:white;
+            font-size: 15px;
+            visibility: hidden;
+            transition: .2s ease;
+            overflow: hidden;
+        }
+
+        .circle:hover .circle_info{
+            width:120px;
+            visibility: visible;
+        }

@@ -1,0 +1,121 @@
+@charset "UTF-8";
+body{
+    font-family: 'Gamja Flower', cursive;
+}
+
+#header{
+    width: 100%;
+    height:100px;
+    background: #E0F7FA;
+    color: bisque;
+
+}
+
+#header h1 {
+
+    font-size: 50px;
+    background: #E1F5FE;
+    position: absolute;
+    left: 0;
+    top : 20px;
+}
+
+#header h1 a {
+
+    font-size:  50px;
+    color: #D50000;
+    text-decoration: none;
+    text-shadow: 2px 2px 2px #222;
+    transition: .2s ease;
+}
+
+#header h1 a:hover{
+    color: #6A1B9A;
+    text-shadow: 0 0 10px #880E4F;
+
+
+}
+
+#loginBtn{
+    width:120px;
+    height: 40px;
+    background: #222222;
+    border-radius: 40px;
+    font-size: 22px;
+    color: #ffffff;
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    transition:  .2s ease;
+
+}
+#loginBtn:hover{
+    color: #D50000;
+    background: #424242;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#main {
+
+    width: 800px;
+    min-height: 500px;
+    margin: auto;
+    padding: 20px 150px;
+    background: white;
+    background-clip: content-box;
+    border: 2px solid #424242;
+    border-top: none;
+    border-bottom: none;
+}
+
+#main h2 {
+    font-size: 40px;
+    color: #2979FF;
+    text-shadow: 1px 1px 5px #424242;
+    margin: 10px 0;
+
+
+}
+
+#footer{
+    width: 100%;
+    height: 100px;
+    background: #E0F7FA;
+    color: #424242;
+    text-align: center;
+    line-height: 100px;
+
+
+}
+.box_btn {
+    text-align: right;
+    background: white;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #D50000;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    line-height: 22px;
+
+}
+.btn:hover{
+    background: #D50000;
+    color: black;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+button.btn {
+    cursor: pointer;
+    border: none;
+    font-family: 'Gamja Flower', cursive;
+    box-sizing: border-box;
+    line-height: 1em;
+}

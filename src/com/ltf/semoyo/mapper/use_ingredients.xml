@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="use_ingredients">
+
+	<!-- 현 -->
+	
+		<select id="selectList" resultType="UseIngredient"
+		parameterType="int">
+		select ui.no no, i.name name, ui.gram gram, ui.unit
+		unit, ui.checked checked
+		FROM use_ingredients ui, ingredients i
+		where
+		ui.in_no = i.no
+		AND ui.re_no = #{no}
+	</select>
+	
+	
+	<!-- 현 end-->
+
+	<!-- 예빈 -->
+	
+	<insert id="insert" parameterType="UseIngredient">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int">
+			SELECT use_ingredients_seq.nextval
+			FROM dual
+		</selectKey>
+		INSERT INTO use_ingredients(no, re_no, in_no, gram, unit, checked)
+		VALUES(#{no}, #{reNo}, #{inNo}, #{gram}, #{unit}, #{check})
+	</insert>
+</mapper>

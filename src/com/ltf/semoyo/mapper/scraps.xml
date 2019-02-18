@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="scraps">
+
+<insert id="insert" parameterType="Scrap">
+insert into scraps(NO,USER_NO,TYPE,TYPE_NO,REGDATE)
+values(scraps_seq.nextval,#{userNo},'T',#{typeNo},systimestamp)
+</insert>
+
+<delete id="delete" parameterType="Scrap">
+Delete scraps
+where type_no=#{typeNo} and user_no =#{userNo}
+</delete>
+
+<select id="selectOne"
+resultType="int"
+ parameterType="Scrap">
+	SELECT count(*)
+	FROM scraps
+	WHERE type='T'
+	AND user_no = #{userNo}
+	AND type_no = #{typeNo}
+</select>
+
+<select id="selectTotal"
+resultType="int" 
+parameterType="int">
+	SELECT COUNT(*)
+	FROM scraps
+	WHERE type='T'
+	AND type_no = #{typeNo}
+</select>
+	
+	
+<select id="myScrap" resultType="Scrap" parameterType="PageVO">
+select no, title, contents, pic, read, regdate, likeNo, scrapNo, userNo, typeNo, sRegdate, nickname
+from(select no, title, contents, pic, read, regdate, likeNo, scrapNo, userNo, typeNo, sRegdate, nickname, rownum r
+from(select a.no no, a.title title, a.contents contents, a.pic pic, a.read read, a.regdate regdate, a.likeNo likeNo, a.scrapNo scrapNo, s.user_no userNo, s.type_no typeNo, s.regdate sRegdate, u.nickname nickname
+from(select r.no no, r.user_no userNo, r.title title, r.contents contents, r.pic pic, r.read read, r.regdate regdate, l.l_countNo likeNo, s.s_countNo scrapNo
+from recipes r, users u, (select type_no, count(*) l_countNo
+						from likes
+						where type = 'R'
+						group by type_no) l, 
+						(select type_no, count(*) s_countNo
+						from scraps
+						where type='R'
+						group by type_no) s
+where r.user_no = u.no and r.no = l.type_no(+) and r.no = s.type_no(+)) a, (select *
+																	from scraps
+																	where type='R') s, users u
+where a.no = s.type_no and a.userNo = u.no and s.user_no=#{no}))
+where r between #{start} and #{end}
+order by sRegdate desc
+</select>
+	
+	<!-- 현 -->
+	<insert id="insertRecipe" parameterType="Scrap">
+		insert into scraps(NO,USER_NO,TYPE,TYPE_NO,REGDATE)
+		values(scraps_seq.nextval,#{userNo},'R',#{typeNo},systimestamp)
+	</insert>
+
+<delete id="deleteRecipe" parameterType="Scrap">
+Delete scraps
+where type_no=#{typeNo} and user_no =#{userNo}
+</delete>
+
+<select id="selectOneRecipe"
+resultType="int"
+ parameterType="Scrap">
+	SELECT count(*)
+	FROM scraps
+	WHERE type='R'
+	AND user_no = #{userNo}
+	AND type_no = #{typeNo}
+</select>
+
+<select id="selectTotalRecipe"
+resultType="int" 
+parameterType="int">
+	SELECT COUNT(*)
+	FROM scraps
+	WHERE type='R'
+	AND type_no = #{typeNo}
+</select>
+	<!-- 현 end-->
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="orders">
+<!--  현  -->
+
+	<select id="selectList" resultType="Order" parameterType="int">
+		SELECT no, re_no reNo, contents, ingredients, fire, tips, times, tools,
+		image
+		FROM orders
+		where re_no = #{no}
+		order by no
+	</select>
+
+<!--  현 end-->
+	
+	<!-- 예빈 -->
+	<insert id="insert" parameterType="Order">
+	 <selectKey order="BEFORE"
+	 	keyProperty="no" resultType="int">
+			SELECT orders_seq.nextval
+			FROM dual
+		</selectKey>
+	 
+			INSERT INTO orders(no, re_no, contents, ingredients, fire, tips, times, tools, image)
+			VALUES(#{no}, #{re_no}, #{contents}, #{ingredients}, #{fire}, #{tips}, #{times}, #{tools}, #{image})
+		
+	</insert>
+
+</mapper>

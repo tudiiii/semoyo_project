@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reviews">
+
+	<!-- 은서 : 소통 댓글 select -->
+	<select id="selectTalkOneReview" parameterType="PageVO" resultType="Review">
+		SELECT no, userNo, type, typeNo, contents, regdate, nickname, profile, r
+		FROM(SELECT no, userNo, type, typeNo, contents, regdate, nickname, profile, rownum r
+			 FROM(SELECT r.no no, r.user_no userNo, r.type, r.type_no typeNo, r.contents, r.regdate, u.nickname nickname, u.profile profile
+				  FROM reviews r, users u
+				  WHERE type = 'C'
+				  AND type_no = #{no}
+				  AND r.user_no = u.no
+				  ORDER BY regdate DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 은서 : 소통 댓글 insert -->
+	<insert id="insertTalkReview" parameterType="Review">
+		INSERT INTO reviews(no, user_no, type, type_no, contents, pic, regdate)
+		VALUES(reviews_seq.nextval, #{userNo}, 'C', #{typeNo}, #{contents}, '', systimestamp)
+	</insert>
+	
+	<!-- 은서 : 소통 댓글 delete -->
+	<delete id="deleteTalkReview" parameterType="int">
+		DELETE FROM reviews
+		WHERE no = #{no}
+	</delete>
+
+
+
+<!-- 혁진 -->
+	<insert id="insert" parameterType="Review">
+		insert into reviews(no,user_no,type,type_no,contents,pic,regdate)
+		values(reviews_seq.nextval,#{userNo},'T',#{typeNo},#{contents},'',systimestamp)
+	</insert>
+
+	<select id="selectTipCom" parameterType="PageVO" resultType="Review">
+		select no,type,typeNo,contents,profile,nickname,regdate, r
+			from(select no,type,typeNo,contents,profile,nickname,regdate,rownum r
+			from(	SELECT r.no no, r.type type, r.type_no typeNo, r.contents, u.profile profile, u.nickname nickname,r.regdate
+				FROM reviews r, users u
+				WHERE r.user_no = u.no
+				AND r.type = 'T'
+				AND r.type_no = #{no}
+				order by 7 desc))
+		where r between #{start} and #{end}
+	</select>
+	
+	<delete id="delete" parameterType="Review">
+		DELETE reviews
+		where no = #{no} and user_no= #{userNo}
+	</delete>
+	<!-- 혁진 end -->
+
+<!-- 현 -->
+<insert id="insertR" parameterType="Review">
+		insert into
+		reviews(NO,USER_NO,TYPE,TYPE_NO,CONTENTS,PIC,REGDATE)
+		values(reviews_seq.nextval,#{userNo},'R',#{typeNo},#{contents},#{pic},systimestamp)
+	</insert>
+
+	<select id="selectListR" resultType="Review"
+		parameterType="hashmap">
+select nickname, profile, contents, pic, regdate, no, userNo
+		from(SELECT nickname, profile, contents, pic, regdate, no, userNo,rownum r
+		FROM(select u.nickname nickname, u.profile profile
+		, r.CONTENTS
+		CONTENTS, r.pic pic, r.regdate regdate, r.no no, u.no userNo
+		FROM reviews
+		r, users u
+		WHERE
+		r.user_no = u.no
+		AND r.TYPE_NO = #{typeNo}
+		AND r.type =
+		'R'
+		order by r.regdate desc))
+		WHERE r BETWEEN #{start} AND #{end}
+
+	</select>
+
+	<delete id="deleteR" parameterType="int">
+		DELETE
+		FROM reviews
+		WHERE no =
+		#{no}
+	</delete>
+
+<!-- 현 end -->
+
+	<select id="giveReview" resultType="Review" parameterType="int">
+		SELECT r.no,r.user_no userNo, r.type , r.type_no typeNo, r.contents, r.regdate,u.nickname nickname,u.profile profile
+		FROM reviews r, users u
+		WHERE r.type='G' AND r.type_no=#{no} AND r.user_no=u.no
+	</select>
+
+	<select id="insertGiveReview" parameterType="Review">
+		INSERT INTO REVIEWS
+		VALUES(reviews_seq.nextval,#{userNo},'G',#{typeNo},#{contents},'',systimestamp)
+	</select>
+	
+	<select id="selectGiveReviewList" resultType="Review" parameterType="PageVO">
+		SELECT no,contents,regdate,profile,nickname,cnt
+		FROM(SELECT no,contents,regdate,profile,nickname,cnt,rownum r
+				FROM (SELECT r.no no,r.contents contents,r.regdate regdate,u.profile profile,u.nickname nickname, l.cnt cnt
+						FROM reviews r, users u , (SELECT count(*) cnt,type_no replyNo FROM likes WHERE type='G' GROUP BY type_no) l
+						WHERE r.user_no=u.no AND type='G' AND type_no=#{no} AND r.no=l.replyNo(+)
+						order BY regdate  DESC)
+				Order By r)
+		WHERE r between #{start} and #{end}
+
+	</select>
+	
+	<select id="selectLikeBest" resultType="Review" parameterType="Give">
+		SELECT no,contents,regdate,profile,nickname,cnt, userNo
+		FROM (SELECT r.no no,r.contents contents,r.regdate regdate,u.profile profile,u.nickname nickname, NVL(l.cnt,0) cnt, r.user_no userNo
+				FROM reviews r, users u , (SELECT count(*) cnt,type_no replyNo FROM likes WHERE type='G' GROUP BY type_no) l
+				WHERE r.user_no=u.no AND r.type='G'AND r.type_no=#{no} AND r.no=l.replyNo(+) 
+				order BY cnt DESC 
+				)
+		WHERE #{personnel}>=rownum
+	</select>
+	
+	<select id="reviewFlag" resultType="int" parameterType="Review">
+		SELECT COUNT(*)
+		FROM REVIEWS
+		WHERE USER_NO=#{userNo} AND TYPE_NO=#{typeNo}
+	</select>
+
+
+</mapper>

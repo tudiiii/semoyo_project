@@ -1,0 +1,405 @@
+@charset "UTF-8";
+
+body{
+            font-family: "Noto Sans KR", sans-serif;
+        }
+
+        .contents{
+            background: white;
+            width: 1080px;
+            min-height: 300px;
+            margin: auto;
+            overflow: hidden;
+
+        }
+
+        /*위는 필요없zzzzzzzzzzzzzzz*/
+
+        #give_top_box{
+            user-select: none;
+            width:400px;
+            height:40px;
+            font-size:30px;
+            font-weight: bold;
+            margin: 20px auto auto;
+            letter-spacing: 10px;
+            text-align: center;
+        }
+        #give_tab_box{
+            margin: 30px auto auto;
+            width: 980px;
+            height:60px;
+            position:relative;
+
+        }
+        .give_status{
+            position:absolute;
+            width:100px;
+            height:200px;
+        }
+        .give_status>img{
+            position:absolute;
+            left:-10px;
+            top:-15px;
+            transform: rotate(-120deg);
+
+        }
+        .give_status>span{
+            display: inline-block;
+            position:absolute;
+            transform: rotate(-30deg);
+            top:18px;
+            left:5px;
+            color:white;
+            font-size:20px;
+            font-weight: bold;
+        }
+        #give_tab_box li{
+            user-select: none;
+            width:482px;
+            height: 60px;
+            border-top: 4px solid transparent;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            background: transparent;
+            font-size: 30px;
+            float: left;
+            text-indent: 15px;
+            line-height: 56px;
+            position:relative;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 0;
+        }
+        #give_tab_box li.on{
+            border-top: 4px solid #16315c;
+            border-left: 4px solid #16315c;
+            border-right: 4px solid #16315c;
+            background: white;
+            z-index: 1;
+        }
+        #give_tab_box li img{
+            vertical-align: middle;
+        }
+        #give_tab_box li:hover{
+            background: white;
+        }
+        #give_content_box{
+            position:relative;
+            width:980px;
+            min-height: 10px;
+            margin:auto;
+            z-index: 0;
+        }
+
+        .give_contents{
+            width:980px;
+            min-height: 300px;
+            border-top: 4px solid #16315c;
+            position:relative;
+            top: -4px;
+            left:0;
+            display: none;
+            background:white;
+            overflow: hidden;
+        }
+        .give_contents.on{
+            display: block;
+        }
+        .contents .search_box{
+            margin-top:30px;
+            width:980px;
+            height:60px;
+            line-height: 60px;
+            text-align: center;
+        }
+        .contents .search_box>input{
+            width:600px;
+            height:30px;
+            background: transparent;
+            border: none;
+            border-bottom: 4px solid #16315c;
+            color:#16315c;
+            font-size:20px;
+            outline: none;
+        }
+        .contents .search_box>i{
+            width:40px;
+            height:40px;
+            color:#16315c;
+            font-size:30px;
+            line-height: 16px;
+            cursor: pointer;
+        }
+        .contents .search_box>button{
+            display: inline-block;
+            margin-left: 40px;
+            font-size:20px;
+            color: white;
+            background:#16315c;
+            font-family: "Noto Sans KR", sans-serif;
+            border:none;
+            outline: none;
+            border-radius: 3px;
+            height:40px;
+            width:120px;
+            cursor: pointer;
+        }
+        .contents .search_box>button:hover{
+            background:#1E4274;
+        }
+        #give_box_boss,
+        #review_box_boss{
+            width:980px;
+            min-height:200px;
+            overflow: hidden;
+        }
+        .give_box,
+        .review_box{
+            width:900px;
+            height:200px;
+            background:white;
+            position:relative;
+            margin: 20px auto;
+            cursor:pointer;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        .give_left_box,
+        .review_left_box{
+            width:620px;
+            height:160px;
+            position:absolute;
+            padding: 10px;
+            left:60px;
+            top:10px;
+        }
+        .review_left_box{
+            padding: 15px 10px;
+        }
+        .give_right_box,
+        .review_right_box{
+            width:180px;
+            height:180px;
+            position:absolute;
+            padding: 10px;
+            right: 0;
+            top:0;
+        }
+        .give_right_box>img,
+        .review_right_box>img{
+            width:180px;
+            height:180px;
+        }
+        .give_time{
+            width:620px;
+            height:30px;
+            font-size:20px;
+            font-weight: bold;
+            text-align: right;
+        }
+        .give_title,
+        .review_title{
+            width:620px;
+            height:30px;
+            font-size:25px;
+            font-weight: bold;
+        }
+        .give_text,
+        .review_text{
+            width:570px;
+            margin-left: 50px;
+            margin-top:25px;
+        }
+        .review_text{
+            height:90px;
+        }
+        .give_text>span,
+        .review_text>span{
+            width:570px;
+            max-height:50px;
+            line-height: 25px;
+            font-size:20px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+        .review_text>span{
+            max-height: 75px;
+        }
+        .give_last,
+        .review_last{
+            margin-top:5px;
+            font-size:19px;
+        }
+        #give_more_box,
+        #review_more_box{
+            width:900px;
+            height:30px;
+            margin: auto auto 20px;
+        }
+        #give_more_btn,
+        #review_more_btn{
+            font-size: 20px;
+            font-family: "Noto Sans KR", sans-serif;
+            font-weight: bold;
+            height:30px;
+            width:900px;
+            background: white;
+            border:none;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        /*후기 팝업 start */
+        #reviewPopup{
+            z-index: 2;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0, .4);
+            display: none;
+        }
+        #centerPopup{
+            z-index: 3;
+            position:fixed;
+            width:900px;
+            min-height: 200px;
+            background: white;
+            top:25%;
+            left: 50%;
+            margin-left:-450px;
+            border-radius: 3px;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: none;
+        }
+        .popup_top{
+            height:50px;
+            font-size:30px;
+            position:relative;
+        }
+        .popup_top>i{
+            position:relative;
+            display: inline-block;
+            top:10px;
+            left:860px;
+        }
+        .popup_center{
+            position:relative;
+            width:800px;
+            height: 300px;
+            padding: 10px 0;
+            margin: auto;
+        }
+        .popup_center_left{
+            width:300px;
+            height:300px;
+            position:absolute;
+        }
+        .popup_center_left>div{
+            position:absolute;
+            width:250px;
+            height:250px;
+            overflow: hidden;
+            top:25px;
+
+            left:25px;
+        }
+        .popup_center_left>div>div{
+            position:absolute;
+            transition: .3s ease;
+            top:0;
+            left:0;
+            width:1000px;
+            height: 250px;
+        }
+        .popup_center_left>div>div>img{
+            float: left;
+            width:250px;
+            height:250px;
+        }
+        .popup_center_left>button{
+            position:absolute;
+            width:25px;
+            height:50px;
+            font-size:30px;
+            background: none;
+            outline: none;
+            border:none;
+            cursor:pointer;
+            top:125px;
+        }
+        .popup_center_left .popup_left_btn{
+            left:0;
+        }
+        .popup_center_left .popup_right_btn{
+            right:0;
+        }
+        .popup_center_right{
+            position:absolute;
+            top:10px;
+            left:300px;
+            width:500px;
+            height:300px;
+        }
+        .popup_center_right>h3{
+            margin:auto;
+            width:400px;
+            height:40px;
+            font-size:25px;
+            line-height: 40px;
+            border-bottom: 4px solid #16315c;
+        }
+        .popup_center_right>.right_title a{
+            font-size:20px;
+            color:#424242;
+            text-decoration: none;
+        }
+        .popup_center_right>.right_title img{
+            vertical-align: middle;
+        }
+        .popup_center_right>.right_title{
+            width:400px;
+            height:40px;
+            line-height: 40px;
+            margin:auto;
+            text-align: right;
+        }
+        .popup_center_right>.right_photo{
+            height:140px;
+            text-align: center;
+        }
+        .popup_center_right>.right_photo img{
+            margin-top:10px;
+            width:120px;
+            height: 120px;
+            border-radius: 60px;
+        }
+        .popup_center_right>.right_name{
+            width:500px;
+            height:50px;
+            font-size:20px;
+            text-align: center;
+        }
+        .popup_center_right>.right_time{
+            width:400px;
+            margin:auto;
+            text-align: right;
+        }
+        .popup_bottom{
+            margin:auto auto 20px;
+            padding: 20px;
+            width:760px;
+            line-height: 20px;
+            background:rgb(245,245,245);
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        /*후기 팝업 end*/

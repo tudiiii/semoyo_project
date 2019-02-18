@@ -1,0 +1,289 @@
+@charset "UTF-8";
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+#backPop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 2;
+    display: none;
+}
+
+#communicationPopBox {
+    width: 1100px;
+    height: 900px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -450px 0 0 -550px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    z-index: 3;
+    display: none;
+}
+
+#communicationPopBox .cancel_report {
+    width: 100px;
+    height: 50px;
+    top: 5px;
+    right: 0;
+    color: black;
+    font-size: 30px;
+    position: absolute;
+    z-index: 3;
+}
+#communicationPopBox .cancel_report i {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+#communicationPopBox .user_info {
+    width: 1030px;
+    height: 100px;
+    position: relative;
+    padding: 30px 0 10px 70px;
+    border-bottom: 2px solid #244b81;
+}
+#communicationPopBox .user_info .commu_pop_user_pic {
+    border-radius: 100px;
+}
+#communicationPopBox .user_info .commu_pop_user_nickname a {
+    font-size: 30px;
+    font-weight: bold;
+    color: #16315c;
+    text-decoration: none;
+    position: absolute;
+    top: 40px;
+    left: 190px;
+}
+#communicationPopBox .user_info .commu_pop_user_write_time {
+    font-size: 18px;
+    color: #424242;
+    position: absolute;
+    left: 190px;
+    bottom: 20px;
+}
+
+#communicationPopBox .commu_pop_contents_wrap {
+    width: 1100px;
+    height: 755px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+#communicationPopBox .commu_pop_pics {
+    min-width: 100px;
+    max-height: 200px;
+    position: relative;
+    text-align: center;
+}
+#communicationPopBox .commu_pop_pic_one {
+    width: 180px;
+    height: 180px;
+    padding: 20px 10px;
+    display: inline-block;
+}
+#communicationPopBox .commu_pop_contents {
+    width: 1000px;
+    min-height: 50px;
+    margin: 20px 0 15px 40px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #e7ebf1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+#communicationPopBox .commu_pop_tags {
+    width: 1000px;
+    min-height: 50px;
+    position: relative;
+    margin: 30px 0 0 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+
+#communicationPopBox .commu_pop_tags_box {
+    width: 870px;
+    min-height: 50px;
+    position: relative;
+    top: -30px;
+    left: 120px;
+}
+.commu_pop_tags em {
+    font-size: 25px;
+    color: #424242;
+    font-weight: bold;
+}
+.commu_pop_tags span a {
+    height: 50px;
+    display: block;
+    float: left;
+    font-size: 22px;
+    color: #16315c;
+    padding: 0 25px;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.commu_pop_tags span a:hover {
+    font-weight: bold;
+}
+.commu_pop_tags img, .commu_pop_tags em {
+    vertical-align: middle;
+}
+
+#communicationPopBox .commu_pop_like {
+    width: 1100px;
+    height: 50px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+    border-top: 1px solid #e7ebf1;
+    border-bottom: 1px solid #e7ebf1;
+}
+.commu_pop_like em {
+    color: #16315c;
+    font-weight: bold;
+}
+.commu_pop_like i {
+    color: #EC7064;
+}
+#communicationPopBox .commu_pop_like:hover {
+    cursor: pointer;
+}
+
+#communicationPopBox .commu_pop_comments_wrap {
+    width: 1000px;
+    min-height: 250px;
+    margin: 20px 0 20px 50px;
+}
+
+#communicationPopBox .commu_pop_comments_wrap .commu_pop_comment_register {
+    width: 1000px;
+    height: 100px;
+    position: relative;
+}
+
+
+#communicationPopBox .commu_pop_comments_wrap .commu_pop_comment_register input {
+	padding-left:10px;
+}
+
+
+#communicationPopBox .commu_pop_comments_wrap .commu_pop_comment_register input {
+    font-family: "Noto Sans KR", sans-serif;
+    width: 798px;
+    height: 78px;
+    font-size: 20px;
+    position: absolute;
+    left: 50px;
+    top: 8px;
+    border: 1px solid #9badc8;
+}
+#communicationPopBox .commu_pop_comments_wrap .commu_pop_comment_register button {
+    font-family: "Noto Sans KR", sans-serif;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 8px;
+    right: 50px;
+    font-size: 19px;
+    border: none;
+    background-color: #16315c;
+    color: white;
+}
+#communicationPopBox .commu_pop_comments_wrap .commu_pop_comment_register button:hover {
+    cursor: pointer;
+}
+#communicationPopBox .commu_pop_only_comments {
+    width: 1000px;
+    min-height: 120px;
+}
+#communicationPopBox .commu_pop_comment_one {
+    width: 980px;
+    min-height: 100px;
+    padding: 10px;
+    margint-top:10px;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: 1px solid #e7ebf1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+#communicationPopBox .commu_pop_comment_one .commu_pop_comment_one_delete {
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    color: #424242;
+    position: absolute;
+    right: 0;
+    top: 13px;
+}
+#communicationPopBox .commu_pop_comment_one .commu_pop_comment_one_delete:hover {
+    cursor: pointer;
+    color: #16315c;
+    font-weight: bold;
+}
+#communicationPopBox .commu_pop_comment_one img {
+    border-radius: 100px;
+}
+#communicationPopBox .commu_pop_comment_one span a {
+    width: 110px;
+    height: 25px;
+    color: #16315c;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#communicationPopBox .commu_pop_comment_one .commu_pop_comment_date {
+    color: #424242;
+    font-size: 17px;
+    position: absolute;
+    top: 14px;
+    left: 250px;
+}
+#communicationPopBox .commu_pop_comment_one .commu_pop_comment_con {
+    width: 820px;
+    min-height: 80px;
+    color: black;
+    font-size: 18px;
+    position: relative;
+    margin-top: -40px;
+    margin-bottom: 10px;
+    left: 150px;
+    line-height: 1.5;
+}
+
+#communicationPopBox .commu_pop_more {
+    width: 1000px;
+    height: 45px;
+    color: #16315c;
+    text-align: center;
+    line-height: 45px;
+    border: 1px solid #dedede;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#communicationPopBox .commu_pop_more:hover {
+    cursor: pointer;
+}
+#communicationPopBox .commu_pop_more:active {
+    box-shadow: none;
+}

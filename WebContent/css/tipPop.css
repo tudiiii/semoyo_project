@@ -1,0 +1,305 @@
+ body {
+            font-family: "Noto Sans KR", sans-serif;
+        }
+
+        #backPop {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 2;
+        }
+
+        #tipPopBox {
+            width: 1100px;
+            height: 900px;
+            background-color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -450px 0 0 -550px;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            z-index: 3;
+        }
+
+        #tipPopBox .cancel_report {
+            width: 100px;
+            height: 50px;
+            top: 5px;
+            right: 0;
+            color: black;
+            font-size: 30px;
+            position: absolute;
+            z-index: 3;
+        }
+        #tipPopBox .cancel_report i {
+            padding-right: 10px;
+            cursor: pointer;
+        }
+
+        #tipPopBox .user_info {
+            width: 1030px;
+            height: 100px;
+            position: relative;
+            padding: 30px 0 10px 70px;
+            border-bottom: 2px solid #244b81;
+        }
+        #tipPopBox .user_info .tip_pop_user_pic {
+            border-radius: 100px;
+        }
+        #tipPopBox .user_info .tip_pop_user_nickname a {
+            font-size: 30px;
+            font-weight: bold;
+            color: #16315c;
+            text-decoration: none;
+            position: absolute;
+            top: 40px;
+            left: 190px;
+        }
+        #tipPopBox .user_info .tip_pop_user_write_time {
+            font-size: 18px;
+            color: #424242;
+            position: absolute;
+            left: 190px;
+            bottom: 20px;
+        }
+
+        #tipPopBox .tip_pop_contents_wrap {
+            width: 1100px;
+            height: 755px;
+            overflow: auto;
+            text-overflow: ellipsis;
+            white-space: normal;
+            
+        }
+        #tipPopBox .tip_pop_title {
+            width: 1000px;
+            height: 50px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+            margin: 10px 0 20px 30px;
+        }
+        #tipPopBox .tip_pop_title img, #tipPopBox .tip_pop_title span {
+            vertical-align: middle;
+        }
+
+        #tipPopBox .tip_pop_contents {
+            width: 1000px;
+            min-height: 50px;
+            margin: 0 0 15px 40px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #e7ebf1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-height:1.4;
+        }
+
+        #tipPopBox .tip_pop_go {
+            width: 1000px;
+            min-height: 200px;
+            position: relative;
+            margin: auto;
+
+        }
+        #tipPopBox .tip_pop_go_one {
+            width: 900px;
+            height: 180px;
+            margin: 20px auto;
+            position: relative;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+        }
+        #tipPopBox .tip_pop_go_one span {
+            color: #16315c;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #tipPopBox .tip_pop_go_one .tip_pop_go_one_contents {
+            width: 770px;
+            min-height: 150px;
+            font-size: 17px;
+            position: relative;
+            top: 15px;
+            left: 120px;
+        }
+        #tipPopBox .tip_pop_go_one .tip_pop_go_one_con {
+            width: 610px;
+            min-height: 150px;
+            position: relative;
+            top: 0;
+            left: 0;
+            line-height:1.4;
+        }
+        #tipPopBox .tip_pop_go_one .tip_pop_go_one_contents img {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        #tipPopBox .tip_pop_like_scrap {
+            width: 1070px;
+            height: 50px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 25px;
+            position: relative;
+            border-top: 1px solid #e7ebf1;
+            border-bottom: 1px solid #e7ebf1;
+        }
+        #tipPopBox .tip_pop_like {
+            width: 549px;
+            height: 50px;
+            border-right: 1px solid #e7ebf1;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            line-height: 50px;
+        }
+        #tipPopBox .tip_pop_like i {
+            color: #EC7064;
+        }
+        #tipPopBox .tip_pop_scrap {
+            width: 550px;
+            height: 50px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            line-height: 50px;
+        }
+        #tipPopBox .tip_pop_scrap i {
+            color: #FDD835;
+        }
+        .tip_pop_like_scrap em {
+            color: #16315c;
+            font-weight: bold;
+        }
+        #tipPopBox .tip_pop_like_scrap:hover {
+            cursor: pointer;
+        }
+
+        #tipPopBox .tip_pop_comments_wrap {
+            width: 1000px;
+            min-height: 250px;
+            margin: 20px 0 20px 50px;
+        }
+
+        #tipPopBox .tip_pop_comments_wrap .tip_pop_comment_register {
+            width: 1000px;
+            height: 100px;
+            position: relative;
+        }
+        #tipPopBox .tip_pop_comments_wrap .tip_pop_comment_register input {
+            font-family: "Noto Sans KR", sans-serif;
+            width: 798px;
+            height: 78px;
+            font-size: 20px;
+            position: absolute;
+            left: 50px;
+            top: 8px;
+            border: 1px solid #9badc8;
+            padding-left:10px;
+        }
+        #tipPopBox .tip_pop_comments_wrap .tip_pop_comment_register button {
+            font-family: "Noto Sans KR", sans-serif;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 8px;
+            right: 50px;
+            font-size: 19px;
+            border: none;
+            background-color: #16315c;
+            color: white;
+        }
+        #tipPopBox .tip_pop_comments_wrap .tip_pop_comment_register button:hover {
+            cursor: pointer;
+        }
+        #tipPopBox .tip_pop_only_comments {
+            width: 1000px;
+            min-height: 120px;
+        }
+        #tipPopBox .tip_pop_comment_one {
+            width: 980px;
+            min-height: 100px;
+            padding: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            border-bottom: 1px solid #e7ebf1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+        #tipPopBox .tip_pop_comment_one .tip_pop_comment_one_delete {
+            width: 50px;
+            height: 30px;
+            font-size: 18px;
+            color: #424242;
+            position: absolute;
+            right: 0;
+            top: 13px;
+        }
+        #tipPopBox .tip_pop_comment_one .tip_pop_comment_one_delete:hover {
+            cursor: pointer;
+            color: #16315c;
+            font-weight: bold;
+        }
+        #tipPopBox .tip_pop_comment_one img {
+            border-radius: 100px;
+        }
+        #tipPopBox .tip_pop_comment_one span a {
+            width: 110px;
+            height: 25px;
+            color: #16315c;
+            text-decoration: none;
+            font-size: 23px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 130px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        #tipPopBox .tip_pop_comment_one .tip_pop_comment_date {
+            color: #424242;
+            font-size: 17px;
+            position: absolute;
+            top: 14px;
+            left: 250px;
+        }
+        #tipPopBox .tip_pop_comment_one .tip_pop_comment_con {
+            width: 820px;
+            min-height: 80px;
+            color: black;
+            font-size: 18px;
+            position: relative;
+            margin-top: -40px;
+            margin-bottom: 10px;
+            left: 150px;
+            line-height: 1.5;
+        }
+
+        #tipPopBox .tip_pop_more {
+            width: 1000px;
+            height: 45px;
+            color: #16315c;
+            text-align: center;
+            line-height: 45px;
+            border: 1px solid #dedede;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        #tipPopBox .tip_pop_more:hover {
+            cursor: pointer;
+        }
+        #tipPopBox .tip_pop_more:active {
+            box-shadow: none;
+        }

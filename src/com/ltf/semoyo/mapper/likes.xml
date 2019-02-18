@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="likes">
+
+	<select id="selectTalkCount" parameterType="int" resultType="Like">
+		SELECT COUNT(no) cnt
+		FROM likes
+		WHERE type_no = #{no}
+		AND type = 'C'
+	</select>
+	
+	<insert id="insertTalkLike" parameterType="Like">
+		INSERT INTO likes(no, user_no, type, type_no, regdate)
+		VALUES(likes_seq.nextval, #{userNo}, 'C', #{typeNo}, systimestamp)
+	</insert>
+	
+	<delete id="deleteTalkLike" parameterType="Like">
+		DELETE likes
+		WHERE type_no = #{typeNo}
+		AND type='C'
+		AND user_no = #{userNo}
+	</delete>
+	
+	<select id="selectTalkLikeCheck" parameterType="Like" resultType="int">
+		SELECT COUNT(*)
+		FROM likes
+		WHERE type_no = #{typeNo}
+		AND type='C'
+		AND user_no = #{userNo}
+	</select>
+	
+	<!-- 혁진 -->
+	<insert id="Ainsert" parameterType="Like">
+insert into likes(NO,USER_NO,TYPE,TYPE_NO,REGDATE)
+values(likes_seq.nextval,#{userNo},'T',#{typeNo},systimestamp)
+</insert>
+
+<delete id="Adelete" parameterType="Like">
+Delete likes
+where type_no=#{typeNo} and user_no =#{userNo}
+</delete>
+
+<select id="AselectOne"
+resultType="int"
+ parameterType="Like">
+	SELECT count(*)
+	FROM likes
+	WHERE type='T'
+	AND user_no = #{userNo}
+	AND type_no = #{typeNo}
+</select>
+
+<select id="AselectTotal"
+resultType="int" 
+parameterType="Like">
+	SELECT COUNT(*)
+	FROM likes
+	WHERE type='T'
+	AND type_no = #{typeNo}
+</select>
+	<!-- 혁진 end -->
+
+	
+	<!-- 현 -->
+	<select id="selectOne" resultType="Like" parameterType="Like">
+		SELECT no, USER_NO,TYPE,TYPE_NO,REGDATE
+	FROM likes
+	WHERE type = 'R'
+	AND USER_NO = #{userNo}
+	AND type_no = #{typeNo}
+	</select>
+
+	<select id="selectTotal" resultType="int" parameterType="int">
+		SELECT COUNT(*)
+	FROM likes
+	WHERE type = 'R'
+	AND type_no = #{typeNo}
+	</select>
+
+
+	<insert id="insert" parameterType="Like">
+	insert into likes(no, user_no,type,type_no,regdate)
+values(likes_seq.nextval,#{userNo},'R',#{typeNo},systimestamp)
+	</insert>
+	
+	<delete id="delete" parameterType="Like">
+	delete
+from likes
+WHERE type_no = #{typeNo}
+AND user_no = #{userNo}
+	</delete>
+<!-- 현 end-->
+
+	<insert id="insertGiveLike" parameterType="Like">
+		insert into likes
+		values (likes_seq.nextval, #{userNo}, 'G', #{typeNo},systimestamp)
+	</insert>
+	
+	<delete id="deleteGiveLike" parameterType="Like">
+		DELETE likes
+		WHERE user_no = #{userNo}
+		AND type_no = #{typeNo} 
+	</delete>
+	
+	<select id="selectOneGiveLike" resultType="int" parameterType="Like">
+		SELECT count(*)
+		FROM likes
+		WHERE type='G'
+		AND user_no = #{userNo}
+		AND type_no = #{typeNo}
+	</select>
+	
+	<select id="selectTotalGiveLike" resultType="int" parameterType="Like">
+		SELECT COUNT(*)
+		FROM likes
+		WHERE type='G' AND type_no = #{typeNo}
+	</select>
+
+</mapper>

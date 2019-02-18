@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="honey">
+
+<select id="selectHoneyList" resultType="Honey" parameterType="PageVO">
+SELECT no, userNo, type, title, content, regdate, nickname , cnt
+FROM(SELECT no, userNo, type, title, content, regdate, nickname, rownum r, cnt
+	FROM(SELECT h.no no,user_no userNo,type,title,content,h.regdate regdate, cnt,nickname
+		FROM HONEY h, (SELECT type_no, count(*) cnt
+		FROM reviews r,honey h
+		WHERE r.type='T' AND h.no= r.type_no
+		group by type_no) r,users u
+		WHERE  r.type_no(+) = h.no
+	<if test="!type.equals('')">
+		and type = #{type}
+	</if>
+		and u.no =h.user_no
+		ORDER BY 6 DESC))
+WHERE r BETWEEN #{start} AND #{end}
+</select>
+
+
+<select id="selectHoneyAllList" resultType="Honey" >
+SELECT h.no,user_no userNo,type,title,content,h.regdate, cnt,nickname
+FROM HONEY h, (SELECT type_no, count(*) cnt
+FROM reviews r,honey h
+WHERE r.type='T' AND h.no= r.type_no
+group by type_no) r,users u
+WHERE r.type_no(+) = h.no
+and u.no =h.user_no
+ORDER BY 6 DESC
+</select>
+
+
+<select id="searchHoneyList" resultType="Honey" parameterType="Honey">
+SELECT h.no, user_no userNo,type,title,content, h.regdate, cnt, nickname
+FROM HONEY h, (SELECT type_no, count(*) cnt
+FROM reviews r,honey h
+WHERE r.type='T' AND h.no= r.type_no
+group by type_no) r ,users u
+where r.type_no(+) = h.no
+and u.no = h.user_no
+and (u.nickname like #{nickname} or h.title like #{title})
+ORDER BY 6 DESC
+</select>
+
+
+<insert id="insert" parameterType="Honey">
+
+	<selectKey order="BEFORE" keyProperty="no" resultType="int" >
+	select honey_seq.nextval
+	from dual
+	</selectKey>
+	
+insert into honey(no,user_no,type,title,content,regdate)
+values(#{no},#{userNo},#{type},#{title},#{content},systimestamp)
+</insert>
+
+
+<select id ="selectTipOne" resultType="Honey" parameterType="Honey">
+select h.no,u.nickname,u.profile,h.title,h.content,h.regdate
+from honey h, users u
+where  h.user_no = u.no
+AND h.no = #{no}
+</select>
+
+<select id="selectTipList" resultType="Honey" parameterType="Honey">
+select contents,pic
+from honey h, tip_orders t
+where h.no= t.tip_no
+and h.no = #{no}
+</select>
+
+<select id="myHoney" parameterType="PageVO" resultType="Honey">
+select no, userNo, type, title, content, regdate, nickname, countNo
+from(select no, userNo, type, title, content, regdate, nickname, countNo, rownum r
+from(select h.no no, h.user_no userNo, h.type type, h.title title, h.content content, h.regdate regdate, u.nickname nickname, r.countNo countNo
+from honey h, users u, (select type_no, count(*) countNo
+									from reviews
+									where type = 'T'
+									group by type_no) r
+where r.type_no(+) = h.no and h.user_no = u.no and h.user_no = #{no}))
+where r between #{start} and #{end}
+order by regdate desc
+</select>
+
+
+</mapper>

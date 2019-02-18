@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="real_tags">
+
+	<insert id="insertTalkTags" parameterType="RealTag">
+		<selectKey order="BEFORE" resultType="int" keyProperty="no">
+			select real_tags_seq.nextval
+			from dual
+		</selectKey>
+		INSERT INTO real_tags(no, name)
+		VALUES(#{no}, #{name})
+	</insert>
+	
+	<select id="selectOneTalk" parameterType="String" resultType="int">
+		SELECT count(*)
+		FROM real_tags
+		WHERE name = #{name}
+	</select>
+	
+	<select id="selectFindTalk" parameterType="String" resultType="int">
+		SELECT no
+		FROM real_tags
+		WHERE name = #{name}
+	</select>
+	
+<!-- 예빈 -->
+		<select id="selectList" resultType="RealTag">
+	
+		SELECT no, name
+		FROM real_tags
+		ORDER BY 1 ASC
+	</select>
+
+<!-- 예빈 -->
+	<insert id="insert" parameterType="RealTag">
+		
+		INSERT INTO real_tags(no, name)
+		VALUES(#{no}, #{name})
+	</insert>
+	
+
+	
+
+</mapper>

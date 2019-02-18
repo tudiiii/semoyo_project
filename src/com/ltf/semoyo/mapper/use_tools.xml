@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="use_tools">
+<!-- 현 -->
+
+<select id="selectList" resultType="UseTool" parameterType="int">
+		select ut.no no, t.name name, ut.checked checked
+		FROM use_tools ut, tools t
+		where ut.to_no = t.no
+		AND ut.re_no = #{no}
+	</select>
+
+<!-- 현 end -->
+	
+	<!-- 예빈 -->
+
+<insert id="insert" parameterType="UseTool">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int">
+			SELECT use_tools_seq.nextval
+			FROM dual
+		</selectKey>
+	INSERT INTO use_tools(no, re_no, to_no, checked)
+	values(#{no}, #{re_no}, #{to_no}, #{checked})
+
+</insert>
+
+</mapper>

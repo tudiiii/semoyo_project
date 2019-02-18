@@ -1,0 +1,890 @@
+#joinBox .msg {
+	height:10px;
+	color: #D32F2F;
+	font-size:12px;
+	margin-left:150px;
+	font-weight: 500;
+	padding-top:5px;
+}
+
+#joinBox .msg.ok {
+	color: #14BAB6;
+}
+
+#registerPopup #registerLogo {
+	
+    z-index: 3;
+    margin: -15px auto;
+    width: 250px;
+    height: 100px;
+    border-radius: 50px;
+    overflow:hidden;
+}
+
+#registerPopup #registerLogo img {
+    width: 250px;
+    height: 150px;
+    z-index: 2;
+}
+
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+
+#header {
+    width: 100%;
+    height: 80px;
+    background-color: #16315c;
+}
+
+.header_box {
+    width: 1300px;
+    height: 80px;
+    margin: auto;
+    line-height: 75px;
+    position: relative;
+}
+.header_box>li {
+    float: left;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+.header_box>.logo {
+    font-size: 25px;
+    width: 180px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left:-50px;
+    margin-right: 50px;
+
+}
+.header_box>.recipe, .header_box>.tip, .header_box>.commu, .header_box>.give {
+    font-size: 25px;
+    width: 180px;
+    height: 65px;
+    margin-bottom: 10px;
+}
+.header_box>.refrigerator, .header_box>.search, .header_box>.login {
+    font-size: 19px;
+    width: 70px;
+    height: 70px;
+}
+.header_box>.logo {
+    position: relative;
+    top: 10px;
+}
+.header_box>.refrigerator {
+    position: absolute;
+    top: 13px;
+    right: 300px;
+}
+.header_box>.search {
+    font-size: 30px;
+    color: white;
+    right: 220px;
+    position: absolute;
+}
+.header_box>.login {
+    font-size: 19px;
+    position: absolute;
+    right: 90px;
+}
+.header_box>.login:hover, .search {
+    cursor: pointer;
+}
+.header_box>.join {
+    font-size: 19px;
+    width: 80px;
+    height: 80px;
+    right: 0;
+    position: absolute;
+}
+.header_box>li a{
+    font-family: "Noto Sans KR", sans-serif;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+.header_box>.logo a {
+    width: 180px;
+    height: 70px;
+}
+.header_box>.recipe a, .header_box>.tip a, .header_box>.commu a, .header_box>.give a {
+    width: 180px;
+    height: 80px;
+}
+.header_box>.search_box {
+    display: none;
+    position:absolute;
+    top:0;
+    right: 0;
+}
+#header>.header_box>.search_box>form>input {
+    width: 825px;
+    height: 60px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    top: 8px;
+    right: 285px;
+    background-color: #16315c;
+    border: none;
+    border-bottom: 1px white solid;
+    outline: none;
+}
+.header_box>.setting {
+    width: 130px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+}
+.header_box>.recipe_register_go {
+    position: absolute;
+    right: 150px;
+    top: 15px;
+}
+.header_box>.setting .profile_pic {
+    position: absolute;
+    border-radius: 50px;
+    left: 0;
+    top: 13px;
+}
+.header_box>.setting .profile_pic:hover {
+    cursor: pointer;
+}
+.header_box>.setting .profile_nickname {
+    position: absolute;
+    left: 60px;
+    top: 0;
+    font-size: 19px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.header_box>.setting .profile_nickname:hover {
+    cursor: pointer;
+}
+li.setting>div.myInf{
+    width: 160px;
+    height: 80px;
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    border-radius: 2px;
+    border: 1px solid #777;
+    background: #ffffff;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,.16);
+    display: none;
+    z-index: 99;
+}
+li.setting>div.myInf::before{
+    content: "";
+    display: block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid  transparent;
+    border-bottom: 10px solid #777;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -9.4px;
+    right: 20px;
+
+}
+li.setting>div.myInf::after{
+    content: "";
+    display: block;
+    border-left: 9px solid transparent;
+    border-right: 9px solid  transparent;
+    border-bottom: 9px solid #ffffff;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -8.4px;
+    right: 21px;
+}
+li.setting li{
+    width: 158px;
+    /*background-color: red;*/
+}
+li.setting div.myInf>ul{
+    padding:9px 0 0 1px;
+}
+li.setting div.myInf a{
+    display: block;
+    height: 16px;
+    width: 122px;
+    padding: 8px 18px 8px 18px;
+    font-size: 13px;
+    color: #333;
+    line-height: 16px;
+    text-decoration: none;
+
+}
+li.setting div.myInf ul li a:hover{
+    background-color: #F5F5F5;
+}
+
+li.setting div.myInf form{
+    display: block;
+    height: 16px;
+    width: 122px;
+    font-size: 13px;
+    color: #333;
+    line-height: 16px;
+    text-decoration: none;
+    outline:none;
+    background-color:white;
+
+}
+
+li.setting div.myInf ul li button{
+	height: 32px;
+    width: 158px;
+	font:13px "Noto Sans KR", sans-serif;
+    outline:none;
+    background-color:white;
+    border:none;
+}
+
+li.setting div.myInf ul li button:hover{
+    background-color: #F5F5F5;
+}
+
+
+li.setting div.sub{
+    margin:9px 0;
+    padding:9px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.show li.setting>div.myInf{
+    display: block;
+}
+
+#header>.header_box>.search_box input::placeholder {
+    color: white;
+}
+.header_box>.recipe:hover {
+    border-bottom: 5px solid white;
+}
+.header_box>.tip:hover {
+    border-bottom: 5px solid white;
+}
+.header_box>.commu:hover {
+    border-bottom: 5px solid white;
+}
+.header_box>.give:hover {
+    border-bottom: 5px solid white;
+}
+.header_box>.refrigerator:hover {
+    cursor: pointer;
+}
+
+.header_box>.recipe.on {
+    border-bottom: 5px solid white;
+}
+.header_box>.tip.on {
+    border-bottom: 5px solid white;
+}
+.header_box>.commu.on{
+    border-bottom: 5px solid white;
+}
+.header_box>.give.on {
+    border-bottom: 5px solid white;
+}
+.header_box>.refrigerator.on{
+    cursor: pointer;
+}
+
+#footer {
+    width: 100%;
+    height: 80px;
+    background-color: #16315c;
+    line-height: 80px;
+    text-align: center;
+}
+#footer.fixed {
+    position: fixed;
+    bottom: 0;
+}
+#footer a {
+    color: #fff;
+    text-decoration: none;
+}
+#footer a:hover {
+    color: #758db2;
+    text-decoration: underline;
+}
+#footer a.btn {
+    text-decoration: none;
+}
+#policy ul {
+    text-align: center;
+}
+#policy li {
+    display: inline;
+    border-left:1px solid #ddd;
+    margin-right:9px;
+    padding-left: 8px;
+}
+#policy li:first-child {
+    border:none;
+}
+#policy strong {
+    font-weight:400;
+}
+
+#documentTop {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    background-color: #16315c;
+    line-height: 60px;
+    text-align: center;
+}
+#documentTop a {
+
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+}
+
+
+/*  header css end */
+
+
+#popup {
+    position: fixed;
+    background-color: rgba(0,0,0,.8);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 2;
+}
+
+#loginPopup {
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+    width: 600px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    margin: -200px 0  0 -300px;
+    display: none;
+    z-index: 3;
+}
+
+#loginPopup #logo {
+            z-index: 3;
+            margin: 10px auto;
+            width: 250px;
+            height: 100px;
+            border-radius: 50px;
+            overflow:hidden;
+        }
+
+#loginPopup #logo img {
+    width: 250px;
+    height: 150px;
+    z-index: 2;
+}
+
+#loginPopup .login {
+    width: 400px;
+    height: 50px;
+    margin: 5px auto;
+}
+
+#loginPopup .login div {
+    width: 80px;
+    height: 50px;
+    float: left;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    color: #7b8184;
+}
+
+#loginPopup .login input {
+    float: left;
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #16315c;
+    outline:none;
+    padding-left: 5px;
+    background-color:white;
+}
+
+#loginPopup .login input ::placeholder {
+    margin-left: 10px;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+#loginPopup button {
+    margin-top: 10px;
+    width: 400px;
+    height: 50px;
+    background-color: #16315c;
+    color: white;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 100px;
+    outline:none;
+    border: none;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+#loginPopup button:hover{
+    background-color: #1E4274;
+}
+
+#loginPopup .login a {
+    display: block;
+    width: 200px;
+    height: 20px;
+    float: left;
+    outline: none;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: black;
+}
+
+#loginPopup #loginClose {
+    position: absolute;
+    right: 10px;
+    top:10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* reg  */
+
+#popup {
+            position: fixed;
+            background-color: rgba(0,0,0,.8);
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 2;
+        }
+
+        #registerPopup {
+            position: fixed;
+            background-color: white;
+            border-radius: 10px;
+            width: 700px;
+            height: 700px;
+            left: 50%;
+            top: 50%;
+            margin: -350px 0  0 -350px;
+            display: none;
+            z-index: 3;
+        }
+
+        .row{
+            margin-top: 20px;
+        }
+
+        .profile input {
+            display: none;
+        }
+
+        #profileRow .delete {
+            width: 20px;
+            height: 20px;
+        }
+
+        #joinBox {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            left: 50%;
+            top: 50%;
+            margin: -260px 0 0 -220px;
+        }
+
+        #profileRow {
+            width: 150px;
+            height: 150px;
+            margin-left: 145px;
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+
+        .label {
+            display: block;
+            width: 130px;
+            height: 20px;
+            font-size: 20px;
+            float: left;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .row input {
+            width: 300px;
+            height: 35px;
+            padding-left: 8px;
+            font: 15px "Noto Sans KR", sans-serif;
+            outline: none;
+        }
+
+        .row input:focus {
+            border: 2px solid #16315c;
+        }
+
+
+        #registerPopup .btn {
+            position: absolute;
+            left: 260px;
+            bottom: -80px;
+            width: 130px;
+            height: 35px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+         #registerPopup .resetBtn {
+            background-color: #BDBDBD;
+            left: 400px;
+        }
+
+        #registerPopup .registerBtn {
+            background-color: #16315c;
+            color: white;
+        }
+
+        #registerClose {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 4;
+            color: black;
+        }
+
+
+
+
+
+
+
+
+        /* 냉장고  */
+        
+        #refPopup {
+        position: fixed;
+        width: 900px;
+        height: 750px;
+        left: 50%;
+        top:40px;
+        margin: 0 0 0  -450px;
+        background-color: white;
+        border-radius: 10px;
+        z-index: 3;
+        display:none;
+    }
+
+    h1 {
+        font: 25px "Noto Sans KR", sans-serif;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    #searchMaterial {
+        width: 450px;
+        margin-left: 225px;
+    }
+
+    #searchMaterial input {
+        margin-bottom: 20px;
+        width: 400px;
+        height: 20px;
+        border: none;
+        border-bottom: 1px solid #16315c;
+        outline: none;
+        font: 15px "Noto Sans KR", sans-serif;
+    }
+
+    #searchMaterial button {
+        outline: none;
+        border: none;
+        width: 30px;
+        height: 30px;
+        background-color: #16315c;
+        border-radius: 30px;
+        color: white;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    #refClose {
+        position: absolute;
+        right: 8px;
+        top: 5px;
+    }
+
+    #materialBox {
+        position: relative;
+        background-color: #f2bc00;
+        width: 900px;
+        height: 44px;
+    }
+    #materialBox>div{
+        overflow: hidden;
+        margin:auto;
+        position:relative;
+        width: 800px;
+        height:44px;
+    }
+
+    #materialBox i{
+        font-size:20px;
+    }
+
+
+
+    #material {
+        transition: .5s ease;
+        position:absolute;
+        top:0;
+        left:5px;
+        width: 1800px;
+        height: 40px;
+    }
+
+    #material li {
+        min-width: 40px;
+        height: 36px;
+        display: block;
+        float: left;
+        text-align: center;
+        line-height: 40px;
+        padding: 0 10px;
+        border-bottom:2px solid transparent;
+        cursor: pointer;
+
+    }
+    #material li:nth-child(11){
+        margin-right: 10px;
+    }
+
+    #material li:hover{
+        font-weight: bold;
+    }
+
+    #material li.on{
+        border-bottom:2px solid #16315c;
+        color: #16315c;
+        font-weight: bold;
+    }
+
+
+    #materialBox .btn {
+        position: absolute;
+        top: 5px;
+        width: 35px;
+        height: 35px;
+        border: 2px solid transparent;
+        outline: none;
+        float: left;
+        border-radius: 30px;
+        color:#16315c;
+        background: transparent;
+        line-height: 35px;
+        cursor: pointer;
+    }
+    #materialBox .btn:hover{
+        border: 2px solid #16315c;
+    }
+
+    #materialBox .btn.leftBtn {
+        left: 15px;
+        text-indent: -1px;
+    }
+
+    #materialBox .btn.rightBtn {
+        right: 15px;
+
+    }
+
+    #material>button {
+        outline: none;
+        background-color: white;
+        border: 1px solid #424242;
+        border-radius: 10px;
+        margin-left: 5px;
+    }
+
+
+    .material {
+        width: 620px;
+        height: 200px;
+        left: 50%;
+        padding: 10px;
+        margin-top: 20px;
+        margin-left: 130px;
+        overflow-y: scroll;
+        border-left: 1px solid #eeeeee;
+        border-top: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .field2 {
+        padding: 10px;
+        width: 620px;
+        height: 200px;
+        left: 50%;
+        margin-top: 20px;
+        margin-left: 130px;
+        border: 1px solid #eeeeee;
+        overflow-y: scroll;
+    }
+
+
+    .material li {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        float: left;
+        cursor: pointer;
+    }
+
+
+
+    .material strong {
+        margin-top: 5px;
+        display: block;
+    }
+
+    .material em {
+        color: #F9A825;
+         display: none; 
+    }
+
+    .selected em, .material li :hover em {
+        position: absolute;
+        display: block;
+        width: 19px;
+        height: 19px;
+        z-index: 70;
+        top: 0;
+        right: 8px;
+    }
+
+    .field2 li {
+        list-style:none;
+    }
+
+    #goBtn {
+        margin-top: 20px;
+        width: 200px;
+        height: 40px;
+        background-color: #16315c;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 40px;
+        text-align: center;
+        margin-left: 350px;
+        outline:none;
+        border: none;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    #myRef {
+        width: 700px;
+        height: 30px;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 30px;
+        font-size: 20px;
+        float: left;
+    }
+
+    #removeBtn {
+        width: 100px;
+        height: 30px;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 30px;
+        float: left;
+        outline: none;
+        border: none;
+        font: 17px "Noto Sans KR", sans-serif;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .removed.field1 em, .filed2 li :hover em {
+        position: absolute;
+        display: block;
+        width: 19px;
+        height: 19px;
+        z-index: 70;
+        top: 0;
+        right: 8px;
+    }
+
+    .material.field2 label{
+        width:100px;
+        height:100px;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+
+
+    .material.field2 .removed .no_checked.on{
+        position: absolute;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        left: 28px;
+        top: 7px;
+        border-radius: 35px;
+        border: 5px solid #445171;
+    }
+
+    .material.field2 .removed .no_checked{
+        display:none;
+    }
+
+    .material.field2 .check{
+        display:none;
+    }
+
+
+
+
+
+
+
+

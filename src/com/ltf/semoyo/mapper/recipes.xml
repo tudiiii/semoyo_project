@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="recipes">
+
+	<!-- 은서 : index에서 6개 출력 -->
+	<select id="selectRecipeListIndex" resultType="Recipe">
+		SELECT no, title, kinds, situation, section, ingredient, time, step, pic, read, regdate
+		FROM recipes
+	</select>
+
+
+<select id="myRecipe" parameterType="PageVO" resultType="Recipe">
+	select no, userNo, title, contents, pic, read, regdate, likeNo, scrapNo
+from(select no, userNo, title, contents, pic, read, regdate, likeNo, scrapNo, rownum r
+from(select r.no no, r.user_no userNo, r.title title, r.contents contents, r.pic pic, r.read read, r.regdate regdate, l.l_countNo likeNo, s.s_countNo scrapNo
+from recipes r, users u, (select type_no, count(*) l_countNo
+						from likes
+						where type = 'R'
+						group by type_no) l, 
+						(select type_no, count(*) s_countNo
+						from scraps
+						where type='R'
+						group by type_no) s
+where r.user_no = u.no and r.no = l.type_no(+) and r.no = s.type_no(+) and r.user_no = #{no}))
+where r between #{start} and #{end}
+order by regdate desc
+</select>
+
+
+<select id="iceboxRecipe" resultType="Recipe" parameterType="FilterVO">
+select userNo, nickname, profile, no, title, foodName, contents, kinds, situation, section, ingredient, person, time, step, pic, regdate, countNo, num
+from(select userNo, nickname, profile, no, title, foodName, contents, kinds, situation, section, ingredient, person, time, step, pic, regdate, countNo, num, rownum r
+from(select r.userNo userNo, r.nickname nickname, r.profile profile, r.no no, r.title title, r.foodName foodName, r.contents contents, r.kinds kinds, r.situation situation, r.section section, r.ingredient ingredient, r.person person, r.time time, r.step step, r.pic pic, r.regdate regdate, r.countNo countNo, a.num num
+from(select u.no userNo, u.nickname nickname, u.profile profile,
+	r.no no, r.title title, r.name foodName, r.contents contents, r.kinds kinds, r.situation situation, r.section section, r.ingredient ingredient, r.person person, r.time time, r.step step, r.pic pic, r.regdate regdate,
+	NVL(l.count_type_no,0) countNo 
+	from users u, recipes r, (select type_no, count(type_no) count_type_no
+							from likes
+							where type='R'
+							group by type_no) l
+	where u.no = r.user_no and l.type_no(+) = r.no) r, (<if test="iceVO.size()!=0">
+														SELECT r.no,
+													</if>
+													<if test="iceVO.size()==0">
+														SELECT num.num, r.no 
+													</if>
+													<foreach item ="ice" index="idx" collection="iceVO">
+														DECODE(NVL(${ice.text}.re_no,0),0,0,1) 
+														<if test="iceVO.size()-1!=idx">
+															+
+														</if>
+														<if test="iceVO.size()-1==idx">
+															num
+														</if>
+													</foreach>
+													<if test="iceVO.size()!=0">
+														FROM recipes r,
+													</if> 
+													<if test="iceVO.size()==0">
+														FROM recipes r,(select 0 num from dual) num
+													</if>
+													<foreach item ="ice" index="idx" collection="iceVO">
+														(SELECT re_no
+														FROM USE_INGREDIENTS
+														WHERE IN_NO = ${ice.nums}) ${ice.text}
+														<if test="iceVO.size()-1!=idx">
+															,
+														</if>
+														<if test="iceVO.size()-1==idx">
+															where
+														</if>
+													</foreach> 	
+													<foreach item ="ice" index="idx" collection="iceVO">
+														${ice.text}.re_no(+) = r.no
+														<if test="iceVO.size()-1!=idx">
+															and
+														</if>
+													</foreach>
+													ORDER BY 1 desc) a
+where r.no = a.no 
+		<if test="iceVO.size()!=0"> 
+			and  num > 0 
+		</if> 
+		<if test="search!=null">
+			and title like ${search}
+		</if>
+		<if test="kinds!=null">
+			and kinds = #{kinds}
+		</if>
+		<if test="situation!=null">
+			and situation = #{situation}
+		</if>
+		<if test="section!=null">
+			and section = #{section}
+		</if>
+		<if test="ingredient!=null">
+			and ingredient = #{ingredient}
+		</if>
+		<if test="person!=null">
+			and person = #{person}
+		</if>
+		<if test="time!=null">				
+			and time <![CDATA[ <= ]]> #{time} 
+		</if>
+		<if test="step!=null">				
+			and step = #{step} 
+		</if>
+		<if test="iceVO.size()!=0">
+			order by num desc,
+			<if test="order!=null">
+				${order} desc
+		</if>
+		</if>
+		<if test="iceVO.size()==0">
+				order by ${order} desc
+		</if>
+
+		))
+where r between #{start} and #{end} 
+</select>
+	
+<!-- 현 -->
+<select id="selectOne" resultType="Recipe" parameterType="int">
+		select
+		r.no no, r.user_no userNo,u.nickname nickname,u.profile profile,
+		title, name, contents, video, kinds, situation,
+		section, ingredient,
+		person, time, step, tip, pic, pic1, pic2, pic3,
+		pic4, read, r.regdate
+		regdate
+		FROM recipes r, users u
+		where r.no = #{no}
+		AND r.user_no = u.no
+	</select>
+	
+	<update id="updateRead" parameterType="int">
+	UPDATE recipes 
+	SET read = read+1
+	WHERE no = #{no}
+	</update>
+
+<!-- 현 end -->
+
+<!-- 예빈 -->
+
+
+	<insert id="insert" parameterType="Recipe">
+		
+		
+		INSERT INTO recipes(no, user_no, title, name, contents, 
+					video, kinds, situation, section, ingredient, 
+					person, time, step, tip, pic,
+					pic1, pic2, pic3, pic4, read, regdate)
+		VALUES(#{no}, #{userNo}, #{title}, #{name}, #{content},
+		 #{video}, #{kinds}, #{situation}, #{section}, #{ingredient}, 
+		 #{person}, #{time}, #{step}, #{tip}, #{pic}, 
+		 #{pic1}, #{pic2}, #{pic3}, #{pic4}, 0, systimestamp)
+		 
+		 
+	
+	</insert>
+	
+	<!-- 예빈 -->
+	<select id="selectSeq" resultType="int">
+	
+		SELECT recipes_seq.nextval
+			FROM dual
+	</select>
+
+
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="give_review">
+
+	<select id="selectGiveReviewList" parameterType="PageVO"
+		resultType="GiveReview">
+		select no, title, regdate, content, pic1, nickname
+		from(select no, title, regdate, content, pic1, nickname, rownum r
+		from(select gr.no no, title, gr.regdate regdate, content, pic1,
+		u.nickname nickname
+		from give_review gr, users u
+		where gr.user_no=u.no
+		and gr.user_check =1
+		and (gr.title like #{text} or gr.content like #{text})
+		order by gr.regdate))
+		where r between #{start} and #{end}
+	</select>
+
+	<select id="selectOne" resultType="GiveReview" parameterType="int">
+		select k.no no, k.userNo userNo, k.nickname nickname, k.profile profile,
+		k.giveNo giveNo, k.title title, k.content content,
+		k.pic1 pic1, k.pic2 pic2, k.pic3 pic3, k.pic4 pic4, k.pic5 pic5, k.regdate
+		regdate, gi.title giveTitle
+		FROM(select g.no no, g.user_no userNo, u.nickname nickname, u.profile
+		profile,g.give_no giveNo, g.title title,
+		g.content content, g.pic1 pic1, g.pic2 pic2, g.pic3 pic3, g.pic4 pic4, g.pic5
+		pic5, g.regdate regdate
+		FROM give_review g, users u
+		WHERE g.user_no = u.no
+		AND g.no = #{no}) k, give gi
+		WHERE k.giveNo = gi.no
+	</select>
+	
+	<insert id="insert" parameterType="GiveReview">
+		INSERT INTO give_review(no,user_no,give_no,title,content,pic1,pic2,pic3,pic4,pic5,regdate, user_check)
+		VALUES(give_review_seq.nextval,#{userNo},#{giveNo},#{title},#{content},#{pic1},#{pic2},#{pic3},#{pic4},#{pic5},systimestamp, 0)
+	</insert>
+	
+	<select id="selectHasReview" parameterType="int" resultType="int">
+		select count(*)
+		from give_review
+		WHERE give_no = #{no}	
+	</select>
+	
+	<select id="selectListHappyUser" resultType="GiveReview" parameterType="int">
+		select no, user_no userNo, give_no giveNo, title, content, pic1, pic2, pic3, pic4, pic5, regdate, user_check userCheck
+		from give_review
+		where give_no = #{no}
+	</select>
+	
+	<update id="updateHappyReview" parameterType="GiveReview">
+		UPDATE GIVE_REVIEW
+		SET TITLE=#{title}, CONTENT=#{content}, PIC1=#{pic1}, PIC2=#{pic2}, PIC3=#{pic3}, PIC4=#{pic4}, PIC5=#{pic5}, REGDATE=SYSTIMESTAMP, USER_CHECK =1 
+		WHERE NO = #{no}	
+	</update>
+
+</mapper>

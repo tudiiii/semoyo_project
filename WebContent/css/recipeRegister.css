@@ -1,0 +1,581 @@
+@charset "UTF-8";
+body {
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .insertRecipeWrap {
+            width: 1080px;
+            /*background-color: bisque;*/
+            margin: auto;
+            margin-top: 10px;
+        }
+        #insert {
+            text-align: center;
+            margin: auto;
+            font-size: 40px;
+            padding: 10px;
+            /*background-color: brown;*/
+        }
+        #storyTelling {
+            width: 450px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #16315c;
+            color: white;
+            font-size: 22px;
+            text-align: center;
+            margin: 20px 0 20px 0;
+            border-radius: 3px;
+        }
+        .contentBox {
+            width: 1080px;
+            /*min-height:550px;*/
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            /*background-color: red;*/
+            margin: 20px 0 20px 0;
+            font-size: 22px;
+            /*text-indent: 10px;*/
+            position: relative;
+        }
+        .recipe {
+            height: 550px;
+        }
+        .contentWrap {
+            width: 700px;
+            height: 550px;
+            /*background-color: aqua;*/
+            float: left;
+        }
+        .info {
+            width: 700px;
+            height: 50px;
+            margin-bottom: 20px;
+            /*background-color: blueviolet;*/
+            font-size: 20px;
+            line-height: 60px;
+            text-indent: 10px;
+        }
+        .info .content_title {
+            display: block;
+            width: 140px;
+            /*background-color:darkolivegreen;*/
+            float: left;
+            text-indent: 20px;
+        }
+        .info > input {
+            width: 548px;
+            height: 35px;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-family: "Noto Sans KR", sans-serif;
+            margin-top: 12px;
+            text-indent: 5px;
+            /*background-color: #16315c;*/
+        }
+        .info > textarea {
+            width: 532px;
+            height: 84px;
+            resize: none;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            padding:8px;
+            margin-top: 10px;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .contentBox .intro {
+            height: 100px;
+        }
+        .info .category {
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-family: "Noto Sans KR", sans-serif;
+            width: 130px;
+        }
+        .info .info_select {
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-family: "Noto Sans KR", sans-serif;
+            width: 120px;
+        }
+        .info_fav {
+            font-size: 25px;
+        }
+        .photoWrap {
+            /*background-color: yellow;*/
+            width: 380px;
+            height: 550px;
+            float: left;
+        }
+        .photoBox {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            float: left;
+            margin: 5px 10px 10px 45px;
+            /*background-color: darkorange;*/
+            text-align: center;
+            line-height: 120px;
+            cursor: pointer;
+            
+            position: relative;
+        }
+        .hero {
+            width: 250px;
+            height: 250px;
+            border: 1px solid #dedede;
+            /*background-color: black;*/
+            margin-left: 65px;
+            margin-top: 13px;
+            font-size: 15px;
+            line-height: 250px;
+        }
+        .title {
+            padding: 20px;
+        }
+        .open {
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 15px;
+            text-align: center;
+            float: left;
+            border: 1px solid #16315c;
+            border-radius: 3px;
+            /*float: left;*/
+            position: absolute;
+            top: 25px;
+            left: 200px;
+            text-decoration: none;
+            color: white;
+            background-color: #16315c;
+        }
+        .ingredient > li {
+            /*background-color: cornflowerblue;*/
+            margin: 10px 0 10px 0;
+            height: 60px;
+            line-height: 60px;
+            width: 680px;
+        }
+        .ingredient > li:hover .close{
+            visibility: visible;
+        }
+        .ingredient > li > input {
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-family: "Noto Sans KR", sans-serif;
+            width: 20px;
+            height: 20px;
+            margin-left: 12px;
+        }
+        .contentBox .detail {
+            width: 200px;
+            height: 40px;
+            margin-right: 20px;
+            text-indent: 10px;
+            font-size: 20px;
+        }
+        .contentBox select {
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-family: "Noto Sans KR", sans-serif;
+            width: 100px;
+            height: 30px;
+        }
+        .tool > li {
+            margin: 10px 0 10px 0;
+            height: 60px;
+            line-height: 60px;
+            width: 450px;
+        }
+        .tool > li:hover .close{
+            visibility: visible;
+        }
+        .tool > li > input {
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-family: "Noto Sans KR", sans-serif;
+            width: 20px;
+            height: 20px;
+            margin-left: 12px;
+        }
+        .contentBox .add {
+            background-color: #16315c;
+            width: 210px;
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            border: 1px solid #424242;
+            border-radius: 3px;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .btn_wrap {
+            height: 60px;
+            width: 400px;
+            /*background-color: darkorange;*/
+            position: relative;
+            left: 700px;
+
+        }
+        .insertRecipeWrap .btn {
+            width: 80px;
+            height: 40px;
+            border-radius: 3px;
+            float: left;
+            margin: 20px;
+            font-size: 20px;
+            cursor:pointer;
+        }
+        .cancel{
+            border: 2px solid #16315C;
+            color:#16315C;
+            background-color: #F5F5F5;
+        }
+        .cancel:hover{
+            background-color: #FAFAFA;
+        }
+        .submit{
+            background-color: #16315c;
+            color:white;
+            border: 2px solid #16315C;
+        }
+        .submit:hover{
+            background-color: #1E4274;
+        }
+        .guide {
+            display: block;
+            color: red;
+            font-size: 14px;
+            position: absolute;
+            font-style: italic;
+        }
+        .first {
+            top: 365px;
+            left: 140px;
+        }
+        .second {
+            top: 10px;
+            right: 20px;
+        }
+        .third {
+            top: 60px;
+            right: 20px;
+        }
+        .forth {
+            top: 10px;
+            right: 20px;
+        }
+        .fifth {
+            top: 10px;
+            right: 20px;
+        }
+        .order li {
+            margin-bottom: 50px;
+        }
+        .recipe_order {
+            /*background-color: darkseagreen;*/
+            margin: 10px;
+            /*float: left;*/
+        }
+        .count {
+            width: 120px;
+            height: 120px;
+            float: left;
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+            color:#16315c;
+        }
+        .recipe_order>textarea {
+            width: 610px;
+            height: 120px;
+            float: left;
+            padding: 5px;
+        }
+        .order textarea {
+            width: 600px;
+            height: 116px;
+            resize: none;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            font-size: 20px;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .recipePhoto {
+            /*width:200px;*/
+            /*height:200px;*/
+            float: left;
+            margin-top: 0px;
+            width:125px;
+            height:125px;
+        }
+        .recipeScroll {
+            width: 50px;
+            height: 100px;
+            float: left;
+            /*background-color: #16315c;*/
+            margin-top: 12.5px;
+            visibility: hidden;
+        }
+
+        .recipeTip {
+            margin-left: 170px;
+            width: 600px;
+            min-height: 30px;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            clear: both;
+            /*background-color: darkseagreen;*/
+        }
+        .scroll {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 30px;
+            margin: 2px;
+        }
+        .recipe_Tip {
+            width: 600px;
+            height: 30px;
+            /*background-color: blueviolet;*/
+            margin-bottom: 2px;
+            font-size: 20px;
+            text-indent: 2px;
+            line-height: 25px;
+            /*border: 1px solid #dedede;*/
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .fav_wrap {
+            width: 30px;
+            float: left;
+            text-align: center;
+        }
+        .recipe_type {
+            width: 80px;
+            height: 25px;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 25px;
+            margin-left: 15px;
+            float: left;
+            font-size: 17px;
+            margin-top: 1.5px;
+            cursor: pointer;
+        }
+        .recipe_Tip input {
+            font-family: "Noto Sans KR", sans-serif;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            width: 500px;
+            right: 10px;
+            margin: 5px 5px 0 5px;
+            text-indent: 5px;
+            float:left;
+            display: block;
+        }
+        #honeyTip {
+            width: 800px;
+            height: 120px;
+            border: 1px solid #dedede;
+            border-radius: 3px;
+            resize: none;
+            margin:0 0 20px 20px;
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 17px;
+            padding: 8px;
+        }
+        .img{
+            display: none;
+        }
+        .fa-carrot{
+            color:orangered;
+        }
+        .fa-dumpster{
+            color:saddlebrown;
+        }
+        .fa-fire-alt{
+            color:firebrick;
+        }
+        .fa-stopwatch{
+            color:#424242;
+        }
+        .fa-pencil-alt{
+            color:sandybrown;
+        }
+
+        .container {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            margin-left:20px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee; // enabled + unchecked box background color
+        }
+
+        .container:hover input ~ .checkmark {
+            background-color: #ccc; // enabled + unchecked box background color(when hover)
+        }
+
+        .container input:checked ~ .checkmark {
+            background-color: #16315c; // enabled + checked box background color
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .close{
+            margin-left: 10px;
+            visibility: hidden;
+        }
+        .gogo{
+            width:970px;
+        }
+        .gogo:hover .recipeScroll{
+            visibility: visible;
+        }
+        .side_bar{
+            width: 200px;
+            min-height:300px;
+            border:1px solid #dedede;
+            border-radius: 3px;
+            position: fixed;
+            top:40%;
+            right:120px;
+        }
+        .side_title{
+            width:200px;
+            text-align: center;
+            height:40px;
+            line-height: 40px;
+            font-size: 30px;
+        }
+        .side_content{
+            padding:5px;
+            border-top:1px solid #dedede;
+            min-height:250px;
+        }
+        .fa-plus{
+            font-size:25px;
+        }
+        .side_ingredient{
+            float:left;
+            border:1px solid #dedede;
+            border-radius: 3px;
+            min-width: 30px;
+            text-align: center;
+            height:30px;
+            line-height: 30px;
+            font-size: 18px;
+            margin:5px;
+            padding:5px;
+        }
+        .remove{
+            float:left;
+            width:25px;
+            height:25px;
+            line-height: 25px;
+            text-align: center;
+            margin-top: 5px;
+            visibility: hidden;
+        }
+        .one:hover .remove{
+            visibility: visible;
+        }
+        .two:hover .remove{
+            visibility: visible;
+        }
+        .three:hover .remove{
+            visibility: visible;
+        }
+        .four:hover .remove{
+            visibility: visible;
+        }
+        .five:hover .remove{
+            visibility: visible;
+        }
+        
+        .bpic {
+        	width: 250px;
+        	height: 250px;
+        	position: absolute;
+        	top:0; 
+        	left: 0;
+        }
+        .spic {
+        	
+        	width: 120px;
+        	height: 120px;
+        	position: absolute;
+        	top:0; 
+        	left: 0;
+        }
+        .spic2 {
+        	width: 125px;
+        	height: 125px;
+        	position: absolute;
+        	top:0; 
+        	left: 0;
+        }
+        .d_button {
+        	width: 30px;
+        	height: 30px;
+        	background: none;
+        	border: none;
+        	position: absolute;
+        	top:0;
+        	right:0;
+        	color: white;
+			cursor: pointer;
+			font-weight: bold;
+			display: none;
+        }
+        .d_button:hover {
+			color: red;
+		}

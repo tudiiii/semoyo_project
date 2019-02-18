@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+
+	<typeAliases>
+		<typeAlias alias="Black" type="com.ltf.semoyo.vo.Black"/>
+		<typeAlias alias="Communication" type="com.ltf.semoyo.vo.Communication"/>
+		<typeAlias alias="Give" type="com.ltf.semoyo.vo.Give"/>
+		<typeAlias alias="GiveReview" type="com.ltf.semoyo.vo.GiveReview"/>
+		<typeAlias alias="Honey" type="com.ltf.semoyo.vo.Honey"/>
+		<typeAlias alias="Ingredient" type="com.ltf.semoyo.vo.Ingredient"/>
+		<typeAlias alias="Like" type="com.ltf.semoyo.vo.Like"/>
+		<typeAlias alias="Order" type="com.ltf.semoyo.vo.Order"/>
+		<typeAlias alias="OrdersCmt" type="com.ltf.semoyo.vo.OrdersCmt"/>
+		<typeAlias alias="PointHistory" type="com.ltf.semoyo.vo.PointHistory"/>
+		<typeAlias alias="RealTag" type="com.ltf.semoyo.vo.RealTag"/>
+		<typeAlias alias="Recipe" type="com.ltf.semoyo.vo.Recipe"/>
+		<typeAlias alias="Review" type="com.ltf.semoyo.vo.Review"/>
+		<typeAlias alias="Scrap" type="com.ltf.semoyo.vo.Scrap"/>
+		<typeAlias alias="Tag" type="com.ltf.semoyo.vo.Tag"/>
+		<typeAlias alias="TipOrder" type="com.ltf.semoyo.vo.TipOrder"/>
+		<typeAlias alias="Tool" type="com.ltf.semoyo.vo.Tool"/>
+		<typeAlias alias="UseIngredient" type="com.ltf.semoyo.vo.UseIngredient"/>
+		<typeAlias alias="User" type="com.ltf.semoyo.vo.User"/>
+		<typeAlias alias="UserIcebox" type="com.ltf.semoyo.vo.UserIcebox"/>
+		<typeAlias alias="UseTool" type="com.ltf.semoyo.vo.UseTool"/>
+		<typeAlias alias="PageVO" type="com.ltf.semoyo.vo.PageVO"/>
+		<typeAlias alias="IceVO" type="com.ltf.semoyo.vo.IceVO"/>
+		<typeAlias alias="FilterVO" type="com.ltf.semoyo.vo.FilterVO"/>
+	</typeAliases>	
+
+	
+	<!-- 맵퍼 경로 설정 -->
+	<mappers>
+		<mapper resource="com/ltf/semoyo/mapper/black.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/communication.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/give_review.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/give.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/honey.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/ingredients.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/likes.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/orders_cmt.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/orders.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/point_history.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/real_tags.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/recipes.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/reviews.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/scraps.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/tags.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/tip_orders.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/tools.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/use_ingredients.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/use_tools.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/user_icebox.xml"/>
+		<mapper resource="com/ltf/semoyo/mapper/users.xml"/>
+	
+	</mappers>
+	
+</configuration>
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="communication">
+
+	<select id="selectTalkListMain" resultType="Communication" parameterType="PageVO">		
+		SELECT no, contents, pic1, regdate, nickname, profile, cnt, r,  tgNum
+		FROM(SELECT no, contents, pic1, regdate, nickname, profile, cnt, rownum r,  tgNum
+	 		 FROM(SELECT c.no no, c.contents contents, c.pic1 pic1, c.regdate regdate, u.nickname nickname, u.profile profile, r.cnt cnt, tgNum
+	 	  		  FROM communication c, users u, (SELECT type_no typeNo, COUNT(*) cnt
+										  		  FROM reviews
+									 	 		  WHERE type='C'
+									 	 		  GROUP BY type_no) r,(SELECT type_no, count(*) tgNum
+																	   FROM tags t, real_tags r
+																	   WHERE t.tag_no = r.no
+																	   AND r.name LIKE #{word}
+																	   GROUP BY type_no) tn
+	 	  		  WHERE c.user_no = u.no
+	 	  		  AND c.no = r.typeNo(+)
+				  and c.no = tn.type_no(+)
+				  <if test="!word.equals('%%')">
+				  and tn.type_no>0
+				  </if>
+	 	  		  ORDER BY no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectTalkOne" resultType="Communication" parameterType="int">
+		SELECT c.no no, c.contents contents, c.pic1 pic1, c.regdate regdate, u.no userNo, u.nickname nickname, u.profile profile, r.cnt cnt, c.pic2 pic2, c.pic3 pic3, c.pic4 pic4, c.pic5 pic5
+	 	FROM communication c, users u, (SELECT type_no typeNo, COUNT(*) cnt
+										FROM reviews
+									 	WHERE type='C'
+									 	GROUP BY type_no) r
+	 	WHERE c.user_no = u.no
+	 	AND c.no = r.typeNo(+)
+		AND c.no = #{no}
+	</select>
+	
+	<select id="selectTalkTotalMain" resultType="int">
+		SELECT COUNT(*)
+		FROM communication
+	</select>
+	
+	<insert id="insertTalk" parameterType="Communication">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int" >
+			SELECT communication_seq.nextval
+			FROM dual			
+		</selectKey>
+		INSERT INTO communication(no, user_no, contents, pic1, pic2, pic3, pic4, pic5, regdate)
+		VALUES(#{no}, #{userNo}, #{contents}, #{pic1}, #{pic2}, #{pic3}, #{pic4}, #{pic5}, systimestamp)		
+	</insert>
+	
+	<select id="myTalk" resultType="Communication" parameterType="PageVO">
+	SELECT no, contents, pic1, regdate, nickname, profile, cnt, r,  tgNum, userNo
+		FROM(SELECT no, contents, pic1, regdate, nickname, profile, userNo, cnt, rownum r,  tgNum
+	 		 FROM(SELECT c.no no, c.user_no userNo, c.contents contents, c.pic1 pic1, c.regdate regdate, u.nickname nickname, u.profile profile, r.cnt cnt, tgNum
+	 	  		  FROM communication c, users u, (SELECT type_no typeNo, COUNT(*) cnt
+										  		  FROM reviews
+									 	 		  WHERE type='C'
+									 	 		  GROUP BY type_no) r,(SELECT type_no, count(*) tgNum
+																	   FROM tags t, real_tags r
+																	   WHERE t.tag_no = r.no
+																	   
+																	   GROUP BY type_no) tn
+	 	  		  WHERE c.user_no = u.no
+	 	  		  AND c.no = r.typeNo(+)
+				  and c.no = tn.type_no(+)
+				  and c.user_no = #{no}
+	 	  		  ORDER BY no DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+
+	
+
+</mapper>

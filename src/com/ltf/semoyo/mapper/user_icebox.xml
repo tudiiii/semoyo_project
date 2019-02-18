@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user_icebox">
+	<insert id="insertAtom" parameterType="UserIcebox">
+		insert into user_icebox(no, user_no, ice_no, in_no, regdate)
+		values(user_icebox_seq.nextval, #{userNo}, 1, #{inNo}, systimestamp)		
+	</insert>
+	
+	<delete id="deleteAtom" parameterType="UserIcebox">
+		delete user_icebox
+		where user_no = #{userNo}
+		and in_no = #{inNo}	
+	</delete>
+	
+	<delete id="deleteAllAtom" parameterType="int">
+		delete user_icebox
+		where user_no = #{userNo}	
+	</delete>
+	
+	<select id="selectUserAtom" parameterType="int" resultType="Ingredient">
+		select i.no no, name, up_no upNo, image
+		from ingredients i, user_icebox ui
+		where ui.in_no = i.no
+		and ui.user_no = #{userNo}	
+	</select>
+	
+
+</mapper>

@@ -1,0 +1,1016 @@
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 300;
+}
+
+#recipeBox button, #timerBox button {
+	font-family: 'Noto Sans KR', sans-serif;
+	cursor: pointer;
+	outline: none;
+}
+
+body input {
+	border-radius: 3px;
+	border: 1px solid #dedede;
+}
+
+h4 {
+	font-size: 30px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+/*********************카테고리*******************/
+#category {
+	width: 400px;
+	height: 40px;
+	margin: 20px;
+	position: relative;
+	top: 70px;
+	left: 220px;
+}
+
+#category li {
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 20px;
+	color: #16315c;
+}
+
+#category>li {
+	float: left;
+}
+
+/* 레시피 전체 박스*/
+#recipeBox {
+	width: 1080px;
+	min-height: 1000px;
+	margin: auto;
+	position: relative;
+	background-color: #fff;
+	border: solid 1px #dedede;
+}
+
+/* 레시피 정보랑 사진 등등*/
+#firstBox {
+	width: 900px;
+	min-height: 1200px;
+	border-bottom: 1px solid #dedede;
+	margin: auto auto 50px;
+	background-color: #fff;
+}
+
+/* 이미지 */
+#imgBox {
+	width: 730px;
+	height: 500px;
+	position: relative;
+	background-color: transparent;
+	margin: auto;
+}
+
+#recipeImgBox {
+	width: 600px;
+	height: 400px;
+	margin: auto;
+	position: relative;
+	top: 40px;
+	overflow: hidden;
+}
+
+#recipeUl {
+	position: absolute;
+	left: 0;
+	transition: .2s ease;
+}
+
+.recipe_img { /* li */
+	float: left;
+}
+
+.recipe_img img {
+	width: 600px;
+	height: 400px;
+}
+
+.btn_left, .btn_right { /* 이미지 안에 넘기는 버튼*/
+	border: none;
+	background-color: transparent;
+	color: #424242;
+	font-size: 50px;
+	position: absolute;
+	margin-top: 210px;
+	cursor: pointer;
+}
+
+.btn_left:hover, .btn_right:hover {
+	color: #c2c2c2;
+}
+
+.btn_left {
+	margin-left: 15px;
+}
+
+.btn_right {
+	margin-left: 680px;
+}
+
+.user_box {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	height: 130px;
+}
+
+.profile {
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	display: block;
+	margin: auto;
+	border:1px solid #dedede;
+	background-image: url(/img/backg.png);
+}
+
+.face_img {
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	margin-top: 5px;
+}
+
+.user_name {
+	color: #424242;
+	font-size: 15px;
+	display: inline-block;
+	line-height: 1;
+	position: relative;
+	margin-top: 4px;
+}
+
+.recipe_title {
+	text-align: center;
+	font-size: 35px;
+	margin-top: 50px;
+	font-weight:bold;
+}
+
+.text_info {
+	min-height: 40px;
+	background: #fff;
+	margin: 50px auto;
+	text-align: center;
+	line-height: 1.5;
+}
+
+#iconBox, #infoBox {
+	height: 100px;
+	margin: 5px auto;
+}
+
+#foodstuffBox, .box_video {
+	margin: 5px auto;
+}
+
+#foodstuffBox, .box_video, .box_order {
+	width: 900px;
+}
+
+.text_info, #iconBox, #infoBox, .black_box {
+	width: 600px;
+}
+
+#tipBox, #tagBox {
+	width: 800px;
+	margin: auto;
+}
+
+.box_order {
+	min-height: 500px;
+	margin: auto;
+	background-color: white;
+}
+
+#tipBox, #tagBox {
+	margin-top: 10px;
+}
+
+#iconBox, #infoBox {
+	position: relative;
+	left: 30px;
+}
+
+#iconBox i, #infoBox i {
+	font-size: 50px;
+	text-align: center;
+}
+
+#iconBox li, #infoBox li {
+	width: 80px;
+	height: 70px;
+	float: left;
+	position: relative;
+	margin-left: 60px;
+	margin-right: 50px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.icon_txt {
+	
+	font-size: 17px;
+	font-weight: bold;
+	
+	margin-top: 5px;
+	
+	
+}
+
+.view_num {
+	width: 50px;
+	height: 20px;
+	float: left;
+	font-size: 17px;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+#infoBox a {
+	text-decoration: none;
+}
+
+.black_box {
+	height: 50px;
+	margin: 10px auto;
+	position: relative;
+}
+
+.black_btn {
+	border: none;
+	background-color: transparent;
+	color: #424242;
+	font-size: 40px;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+}
+
+#foodstuffBox {
+	min-height: 450px;
+	background-color: white;
+	position: relative;
+}
+
+.fs_text {
+	font-size: 15px;
+	color: #E53935;
+	display: block;
+	position: absolute;
+	top: 25px;
+	left: 150px;
+}
+
+.gram_info {
+	width: 150px;
+	height: 50px;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	border: 1px solid #16315C;
+	cursor: pointer;
+	background-color: #16315C;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 40px;
+}
+
+.gram_info:hover {
+	background-color: #1E4274;
+}
+
+.foodstuff_ul {
+	width: 500px;
+	min-height: 100px;
+	margin: 20px auto;
+	position: relative;
+}
+
+.strong {
+	font-size: 18px;
+	font-weight: bold;
+	position: relative;
+	display: block;
+	left: 200px;
+}
+
+.foodstuff_ul li { /* 현재 행이 늘어나면 같이 더 늘려져야하는데 딱붙음*/
+	width: 460px;
+	height: 20px;
+	border-bottom: 1px solid #dedede;
+	margin: 10px;
+	padding: 10px;
+	position: relative;
+	font-size: 19px;
+}
+
+.foodstuff_ul li span {
+	color: #9E9E9E;
+	position: absolute;
+	right: 0;
+}
+
+.fs_on { /* 이게 붙으면 빨간색 별 붙이기 */
+	color: red;
+}
+
+.box_video {
+	height: 500px;
+	background-color: #fff;
+}
+
+.recipe_video {
+	width: 600px;
+	height: 400px;
+	margin: auto;
+}
+
+.recipe_video i {
+	font-size: 100px;
+	display: block;
+	text-align: center;
+	line-height: 400px;
+}
+
+.box_order {
+	margin-top: 30px;
+}
+
+.bundle {
+	width: 800px;
+	min-height: 300px;
+	margin: 30px auto;
+	position: relative;
+}
+
+.step_text {
+	width: 400px;
+	min-height: 200px;
+	padding: 6px 0 10px 40px;
+	font-size: 24px;
+	position: relative;
+	vertical-align: top;
+	line-height: 35px;
+	white-space: pre-wrap;
+}
+
+.step_img {
+	position: absolute;
+	top: 0px;
+	right: 10px;
+}
+
+.step_img img { /* 조리순서 이미지 */
+	width: 200px;
+	height: 200px;
+	border-radius: 3px;
+}
+
+.step_num {
+	position: absolute;
+	top: 10px;
+	font-weight: bold;
+	color: #16315c;
+	left: -30px;
+	font-size: 25px;
+}
+
+.fa-exclamation {
+	color: #FFAB00;
+}
+
+.step_tip {
+	margin: 5px;
+}
+
+.step_tip span {
+	margin-left: 10px;
+	font-size: 15px;
+	font-weight: 400;
+	color: #757575;
+}
+
+.step_tip_box {
+	width: 500px;
+	margin-left: 50px;
+}
+
+/**********************팁 댓글 ********************/
+.tip_cmt_wrap {
+	width: 800px;
+	min-height: 300px;
+	border-bottom: 1px solid #dedede;
+	margin-top: 50px;
+}
+
+.tip_cmt_box { /* 댓글 다는창*/
+	width: 800px;
+	height: 50px;
+}
+
+.tip_cmt_box input {
+	width: 600px;
+	height: 30px;
+	vertical-align: top;
+	border: 2px inset #dedede;
+	text-indent: 20px;
+}
+
+.tip_cmt_box input::placeholder {
+	text-align: center;
+}
+
+.tip_cmt_box button {
+	border: none;
+	width: 105px;
+	height: 35px;
+	background-color: #16315c;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+.tip_add_box {
+	width: 710px;
+	height: 100px;
+	line-height: 100px;
+}
+
+.step_plus_btn {
+	width: 710px;
+	height: 30px;
+	border: none;
+	background-color: #16315c;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+.cmt_li_box {
+	width: 700px;
+	min-height: 130px;
+}
+
+.cmt_li {
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #c2c2c2;
+	margin-top: 10px;
+	position: relative;
+	text-indent: 10px;
+}
+
+.regdate {
+	position: absolute;
+	right: 0px;
+	font-size: 12px;
+	color: #9E9E9E;
+}
+
+.tip_username {
+	position: absolute;
+	display: block;
+	right: 120px;
+	top: 0;
+}
+
+#tipBox {
+	height: 130px;
+	border: 1px dashed #dedede;
+}
+
+#tipBox h4 {
+	font-size: 20px;
+}
+
+#tipBox strong {
+	text-indent:10px;
+	display: block;
+	    white-space: pre-wrap;
+    line-height: 1.5em;
+}
+
+#tagBox {
+	height: 50px;
+	border: 1px dashed #dedede;
+	border-radius: 3px;
+}
+
+#tagBox h4 {
+	font-size: 20px;
+	float: left;
+	line-height: 30px;
+	padding-right: 40px;
+}
+
+.recipe_tag {
+	line-height: 50px;
+	padding-right: 20px;
+}
+
+/* 레시피의 댓글 */
+#commentBox {
+	width: 800px;
+	min-height: 800px;
+	margin: 30px auto;
+	position: relative;
+}
+
+.cmt_write_box {
+	width: 800px;
+	/*  border-bottom: 1px solid #dedede; */
+	position: relative;
+}
+
+/*파일선택*/
+.cmt_write_box input {
+	display: none;
+}
+
+.cmt_write_box label {
+	position: relative;
+	width: 100px;
+	height: 98px;
+	left: 0px;
+	background-color: #fff;
+	border-radius: 3px;
+	cursor: pointer;
+	border: 1px solid #dedede;
+	display: block;
+	float: left;
+}
+
+.cmt_write_box i {
+	position: absolute;
+	top: 42px;
+	left: 42px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+/* 댓글의 추가 사진!!!!!!!!!!!!!!!!*/
+.talk_pic {
+	width: 100px;
+	height: 98px;
+	background: red;
+	position: absolute;
+	border-radius: 3px;
+	left: 1px;
+	z-index: 1;
+}
+
+.cmt_pic {
+	width: 100px;
+	height: 100px;
+	border-radius: 3px;
+}
+
+.delete_button {
+	position: absolute;
+	border: none;
+	background: none;
+	top: -40px;
+	right: 30px;
+	outline: none;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 20px;
+	color: #16315c;
+}
+
+.delete_button:hover {
+	color: #1E4274;
+}
+
+#reviewImgBox {
+	width: 900px;
+	height: 100px;
+	/* text-align: center; */
+	/* font-size: 140px; */
+	position: relative;
+	color: #ddd;
+	/* border-radius: 140px; */
+	display: block;
+	margin: auto;
+}
+
+#reviewImgBox.no_image #reviewImg {
+	display: none;
+}
+
+#reviewImg {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#reviewImgBox.no_image .delete {
+	display: none;
+}
+
+/* 댓글쓰기 */
+.cmt_write_box textarea {
+	width: 550px;
+	height: 86px;
+	border: 1px solid #dedede;
+	border-bottom-left-radius: 3px;
+	resize: none;
+	margin-left: 10px;
+	text-indent: 10px;
+	padding-top: 10px;
+}
+
+.cmt_write_box textarea:focus {
+	outline: 2px solid orange;
+}
+
+/* 댓글등록 버튼 */
+#recipeBox #commentBox #cmtBtn {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-color: #fff;
+	border-top-right-radius: 3px;
+	border: 1px solid #dedede;
+	border-left: none;
+}
+
+.cmt_user_box {
+	width: 95px;
+	height: 95px;
+	margin-top: 40px;
+}
+
+.cmt_profile {
+	width: 70px;
+	height: 70px;
+	border-radius: 100%;
+	display: block;
+	margin: auto;
+	background-image: url(/img/backg.png);
+}
+
+.cmt_face_img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-top: 5px;
+}
+
+.cmt_user_name {
+	color: #16315c;
+	font-weight: bold;
+	font-size: 15px;
+	display: inline-block;
+	line-height: 1;
+	position: relative;
+	margin-top: 4px;
+}
+
+.rcp_cmt_li {
+	width: 750px;
+	min-height: 100px;
+	position: relative;
+	border-bottom: 1px dashed #dedede;
+}
+
+.cmt_date {
+	font-size: 13px;
+	padding-left: 5px;
+	color: #908f8f;
+}
+
+.delete_form {
+	display: inline-block;
+}
+
+.delete_btn {
+	border: none;
+	background-color: transparent;
+}
+
+.rcp_cmt_img {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	border-radius: 3px;
+}
+
+.rcp_cmt_img img {
+	width: 100px;
+	height: 100px;
+}
+
+.cmt_info_box {
+	width: 500px;
+	height: 20px;
+	position: absolute;
+	top: 15px;
+	left: 100px;
+}
+
+.rcp_cmt_text {
+	width: 500px;
+	min-height: 40px;
+	position: relative;
+	left: 100px;
+	top: -50px;
+	font-size: 15px;
+}
+
+.add_cmt_box {
+	width: 710px;
+	height: 100px;
+	line-height: 100px;
+}
+
+.add_cmt_btn {
+	width: 750px;
+	height: 30px;
+	border: none;
+	background-color: #16315c;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+#otherRcpBox {
+	width: 1080px;
+	height: 350px;
+	margin: auto;
+	margin-bottom: 40px;
+	margin-top: 30px;
+	border: 1px dashed #dedede;
+}
+
+/**********************타이머******************/
+#timerBox {
+	width: 300px;
+	height: 300px;
+	position: fixed;
+	right: 50px;
+	top: 30%;
+	border: 3px solid #16315C;
+	border-radius: 3px;
+}
+
+#timerBox input {
+	width: 60px;
+	height: 60px;
+	font-size: 30px;
+}
+
+#timerBox .timer_btn {
+	border-radius: 3px;
+	width: 80px;
+	height: 30px;
+	margin: 5px;
+	font-weight: bold;
+}
+
+#timerMain {
+	width: 300px;
+	height: 64px;
+	font-size: 30px;
+	text-align: center;
+}
+
+#timerBtn {
+	width: 300px;
+	height: 40px;
+	position: relative;
+	text-align: center;
+	top: 10px;
+}
+
+#startTimer {
+	background-color: #D32F2F;
+	color: white;
+	border: 1px solid #D32F2F;
+}
+
+#startTimer:hover {
+	background-color: #E53935;
+}
+
+#stopTimer {
+	background-color: #F5F5F5;
+	color: #16315C;
+	border: 1px solid #16315C;
+}
+
+#stopTimer:hover {
+	background-color: #FAFAFA;
+}
+
+#resetTimer {
+	background-color: #16315C;
+	color: white;
+	border: 1px solid #1E4274;
+}
+
+#resetTimer:hover {
+	background-color: #1E4274;
+}
+
+.timerUpDown {
+	width: 300px;
+	height: 41px;
+	text-align: center;
+	position: relative;
+	left: 5px;
+}
+
+.timerUpDown button:hover {
+	color: #555555;
+}
+
+.up_down_btn {
+	width: 50px;
+	margin-right: 20px;
+	margin-left: 10px;
+	border: none;
+	background-color: transparent;
+	font-size: 40px;
+	line-height: 0px;
+}
+
+#timerBox h3 {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 10px;
+	font-weight: bold;
+	color: #16315C;
+}
+/* 타이머 계량법 안내 버튼 */
+.gram_box {
+	width: 300px;
+	position: relative;
+	bottom: -20px;
+	text-align: center;
+}
+
+.gram_btn {
+	background-color: #16315C;
+	border: 1px solid #16315C;
+	width: 120px;
+	height: 30px;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+}
+
+.gram_btn:hover {
+	background-color: #1E4274;
+}
+
+/* 계량법 안내창 */
+.gram_background {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: none;
+	margin: auto 0;
+	z-index: 500;
+}
+
+#gramText {
+	position: fixed;
+	width: 1200px;
+	height: 600px;
+	border: 1px solid #dedede;
+	border-radius: 3px;
+	margin: -400px -600px;
+	left: 50%;
+	top: 55%;
+	background-color: white;
+	text-align: center;
+	z-index: 1020;
+	display: none;
+	box-shadow: 0px 18px 43px 6px rgba(0, 0, 0, 0.75);
+}
+
+#gramTitle {
+	width: 1180px;
+	height: 50px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #16315C;
+	line-height: 50px;
+}
+
+#gramText img {
+	border: 1px solid #dedede;
+}
+
+#gramText #gramBtn1 {
+	width: 100px;
+	height: 40px;
+	border: 1px solid #16315C;
+	background-color: #F5F5F5;
+	color: #16315C;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+#gramText #gramBtn1:hover {
+	border: 1px solid #16315C;
+	background-color: #FAFAFA;
+}
+
+#gramExit {
+	width: 1160px;
+	height: 30px;
+	position: absolute;
+	text-align: right;
+	top: 10px;
+}
+
+#gramBtn2 {
+	color: #16315C;
+	border: none;
+	background-color: transparent;
+	font-size: 30px;
+}
+
+#gramBtn2:hover {
+	color: #1E4274;
+}
+
+.fa-carrot {
+	color: orangered;
+}
+
+.fa-dumpster {
+	color: saddlebrown;
+}
+
+.fa-fire-alt {
+	color: firebrick;
+}
+
+.fa-stopwatch {
+	color: #424242;
+}
+
+.fa-pencil-alt {
+	color: sandybrown;
+}
+
+/********* 좋아요 버튼 *******/
+.btn_like:hover {
+	
+}
+
+.btn_like i {
+	color: red;
+	vertical-align: middle;
+}
+
+.btn_like .far {
+	display: inline;
+}
+
+.btn_like.like .far {
+	display: none;
+}
+
+.btn_like .fas {
+	display: none;
+}
+
+.btn_like.like .fas {
+	display: inline;
+}
+
+.btn_like, .recipe_scrap_btn {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}

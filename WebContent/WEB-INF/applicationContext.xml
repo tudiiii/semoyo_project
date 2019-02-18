@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 트랜잭션을 어노테이션으로 설정 -->
+	<tx:annotation-driven />
+
+	<!-- WAS가 생성한 커넥션풀을 JNDI로 찾음 -->
+	<jee:jndi-lookup id="dataSource"
+		jndi-name="java:comp/env/jdbc/oracle" />
+
+
+	<!-- SqlSessionFactory 설정 p:dataSource-ref : 커넥션풀 의존성 주입 p:configLocation 
+		: mybatis-config.xml 경로 설정 -->
+	<bean id="sqlSessionFactory" p:dataSource-ref="dataSource"
+		p:configLocation="/WEB-INF/mybatis-config.xml"
+		class="org.mybatis.spring.SqlSessionFactoryBean" />
+
+	<!-- SqlSession 설정 -->
+	<bean id="sqlSession" c:sqlSessionFactory-ref="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionTemplate" />
+
+	<!-- util -->
+	<bean
+		id="fileRenameUtil"
+	 	class="com.ltf.semoyo.util.FileRenameUtil"/>
+	 	
+	 
+	<bean
+		id="resizeImageUtil"
+		class="com.ltf.semoyo.util.ResizeImageUtil"/>
+
+	<bean id="paginateUtil" class="com.ltf.semoyo.util.PaginateUtil"/>
+
+	<!-- dao -->
+	<bean id="usersDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.UsersDAOImpl" />
+
+	<bean id="blackDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.BlackDAOImpl" />
+
+	<bean id="communicationDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.CommunicationDAOImpl" />
+
+	<bean id="giveDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.GiveDAOImpl" />
+
+	<bean id="giveReviewDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.GiveReviewDAOImpl" />
+
+	<bean id="honeyDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.HoneyDAOImpl" />
+
+	<bean id="ingredientsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.IngredientsDAOImpl" />
+
+	<bean id="likesDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.LikesDAOImpl" />
+
+	<bean id="ordersCmtDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.OrdersCmtDAOImpl" />
+
+	<bean id="ordersDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.OrdersDAOImpl" />
+
+	<bean id="pointHistoryDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.PointHistoryDAOImpl" />
+
+	<bean id="realTagsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.RealTagsDAOImpl" />
+
+	<bean id="recipesDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.RecipesDAOImpl" />
+
+	<bean id="reviewsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.ReviewsDAOImpl" />
+
+	<bean id="scrapsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.ScrapsDAOImpl" />
+
+	<bean id="tagsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.TagsDAOImpl" />
+
+	<bean id="tipOrdersDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.TipOrdersDAOImpl" />
+
+	<bean id="toolsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.ToolsDAOImpl" />
+
+	<bean id="useIngredientsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.UseIngredientsDAOImpl" />
+
+	<bean id="userIceboxDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.UserIceboxDAOImpl" />
+
+	<bean id="useToolsDAO" p:session-ref="sqlSession"
+		class="com.ltf.semoyo.dao.UseToolsDAOImpl" />
+
+
+
+	<!-- service -->
+	<bean id="usersService" 
+	p:usersDAO-ref="usersDAO" 
+	p:giveDAO-ref="giveDAO" 
+	p:honeyDAO-ref="honeyDAO" 
+	p:communicationDAO-ref="communicationDAO" 
+	p:scrapsDAO-ref="scrapsDAO" 
+	p:recipesDAO-ref="recipesDAO"
+		class="com.ltf.semoyo.service.UsersServiceImpl" />
+
+	<bean id="blackService" p:blackDAO-ref="blackDAO"
+		class="com.ltf.semoyo.service.BlackServiceImpl" />
+
+	<bean id="communicationService" p:communicationDAO-ref="communicationDAO"
+		p:tagsDAO-ref="tagsDAO" p:likesDAO-ref="likesDAO"
+		p:reviewsDAO-ref="reviewsDAO" p:realTagsDAO-ref="realTagsDAO"
+		class="com.ltf.semoyo.service.CommunicationServiceImpl"/>
+		
+	<bean id="giveService"
+	p:giveReviewDAO-ref="giveReviewDAO"
+	 p:giveDAO-ref="giveDAO" p:reviewsDAO-ref="reviewsDAO" p:likesDAO-ref="likesDAO"
+	
+		class="com.ltf.semoyo.service.GiveServiceImpl"/>
+	
+	<bean id="giveReviewService" p:giveReviewDAO-ref="giveReviewDAO" 
+		class="com.ltf.semoyo.service.GiveReviewServiceImpl"/>
+		
+		<bean id="honeyService" p:honeyDAO-ref="honeyDAO"
+			p:tipOrdersDAO-ref="tipOrdersDAO" p:reviewsDAO-ref="reviewsDAO" p:likesDAO-ref="likesDAO" p:scrapsDAO-ref="scrapsDAO"
+		class="com.ltf.semoyo.service.HoneyServiceImpl"/>
+		
+			<bean id="ingredientsService" p:ingredientsDAO-ref="ingredientsDAO"
+		class="com.ltf.semoyo.service.IngredientsServiceImpl"/>
+		
+			<bean id="likesService" p:likesDAO-ref="likesDAO"
+		class="com.ltf.semoyo.service.LikesServiceImpl"/>
+		
+			<bean id="ordersCmtService" p:ordersCmtDAO-ref="ordersCmtDAO"
+		class="com.ltf.semoyo.service.OrdersCmtServiceImpl"/>
+		
+			<bean id="ordersService" p:ordersDAO-ref="ordersDAO"
+		class="com.ltf.semoyo.service.OrdersServiceImpl"/>
+		
+			<bean id="pointHistoryService" p:pointHistoryDAO-ref="pointHistoryDAO"
+		class="com.ltf.semoyo.service.PointHistoryServiceImpl"/>
+		
+			<bean id="realTagsService" p:realTagsDAO-ref="realTagsDAO"
+		class="com.ltf.semoyo.service.RealTagsServiceImpl"/>
+		
+			<bean id="recipesService" p:recipesDAO-ref="recipesDAO"
+			p:useIngredientsDAO-ref="useIngredientsDAO"
+			p:useToolsDAO-ref="useToolsDAO"
+			p:ordersDAO-ref="ordersDAO"
+			p:tagsDAO-ref="tagsDAO"
+			p:likesDAO-ref="likesDAO"
+			p:scrapsDAO-ref="scrapsDAO"
+		class="com.ltf.semoyo.service.RecipesServiceImpl"/>
+		
+			<bean id="reviewsService" p:reviewsDAO-ref="reviewsDAO" p:likesDAO-ref="likesDAO"
+		class="com.ltf.semoyo.service.ReviewsServiceImpl"/>
+		
+			<bean id="scrapsService" p:scrapsDAO-ref="scrapsDAO"
+		class="com.ltf.semoyo.service.ScrapsServiceImpl"/>
+		
+			<bean id="tagsService" p:tagsDAO-ref="tagsDAO"
+		class="com.ltf.semoyo.service.TagsServiceImpl"/>
+		
+			<bean id="tipOrdersService" p:tipOrdersDAO-ref="tipOrdersDAO"
+		class="com.ltf.semoyo.service.TipOrdersServiceImpl"/>
+		
+			<bean id="toolsService" p:toolsDAO-ref="toolsDAO"
+		class="com.ltf.semoyo.service.ToolsServiceImpl"/>
+		
+			<bean id="useIngredientsService" p:useIngredientsDAO-ref="useIngredientsDAO"
+		class="com.ltf.semoyo.service.UseIngredientsServiceImpl"/>
+		
+			<bean id="userIceboxService" p:userIceboxDAO-ref="userIceboxDAO"
+		class="com.ltf.semoyo.service.UserIceboxServiceImpl"/>
+		
+			<bean id="useToolsService" p:useToolsDAO-ref="useToolsDAO"
+		class="com.ltf.semoyo.service.UseToolsServiceImpl"/>
+		
+		
+
+
+</beans>
+
+
+
+
+
+
+
+

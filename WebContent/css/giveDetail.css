@@ -1,0 +1,276 @@
+@charset "UTF-8";
+.contents{
+            background: white;
+            width: 1080px;
+            min-height: 300px;
+            margin: auto;
+            overflow: hidden;
+        }
+        /*zzzzzzzzz*/
+        #photo_title_box{
+            margin-top: 20px;
+            width:1080px;
+            height:400px;
+            position:relative;
+        }
+        .photo_left_box>button{
+            width:40px;
+            height:80px;
+            font-size:40px;
+            position:absolute;
+            top:160px;
+            border:none;
+            outline: none;
+            background:transparent;
+            cursor: pointer;
+        }
+        .photo_left_box>.photo_left_btn{
+        }
+        .photo_left_box>.photo_right_btn{
+            left:440px;
+        }
+        .photo_left_box>div{
+            position:absolute;
+            width:400px;
+            height:400px;
+            overflow: hidden;
+            top:0;
+            left:40px;
+        }
+        .move_img_box{
+            position:absolute;
+            left:0;
+            width:1600px;
+            height:400px;
+            transition: .5s ease;
+        }
+        .move_img_box>img{
+            width:400px;
+            height: 400px;
+            float: left;
+        }
+        /*사진 끝*/
+        .title_right_box{
+            width:550px;
+            height:400px;
+            position:absolute;
+            left:480px;
+            padding:0 25px;
+        }
+        .title_right_box>h2{
+            min-height: 40px;
+            font-size:30px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 4px solid  #16315c;
+            margin-bottom:40px;
+        }
+        .title_right_box>.text_box{
+            margin:auto;
+            width:500px;
+            line-height: 30px;
+            font-size: 20px;
+        }
+        .title_right_box>form>.write_box{
+            position:absolute;
+            bottom:0;
+            width:550px;
+            margin:auto;
+            height:150px;
+        }
+        .title_right_box>form>.write_box>textarea{
+            width:480px;
+            height:80px;
+            margin:0 25px 5px 25px;
+            background: transparent;
+            border-radius: 3px;
+            border:2px solid #16315c;
+            outline: none;
+            font-family: "Noto Sans KR", sans-serif;
+            resize: none;
+            font-size:15px;
+            white-space: pre-wrap;
+            padding: 10px;
+        }
+        .title_right_box>form>.write_box>textarea::placeholder{
+            font-size:15px;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .title_right_box>form>.write_box button {
+            cursor:pointer;
+            width:506px;
+            height:30px;
+            background:#16315c;
+            color:white;
+            border:none;
+            border-radius: 3px;
+            margin:0 25px 5px 25px;
+            font-family: "Noto Sans KR", sans-serif;
+            font-size:18px;
+        }
+        .title_right_box>form>.write_box button:hover{
+            background:#1E4274;
+        }
+        #user_time_box{
+            width:1000px;
+            height:100px;
+            padding:20px 40px;
+            position:relative;
+        }
+        #user_time_box>.face_box{
+            width:100px;
+            height:100px;
+            position:absolute;
+        }
+        #user_time_box>.face_box>img{
+            width:100px;
+            height:100px;
+            border-radius: 100px;
+        }
+        #user_time_box>.name_box{
+            position:absolute;
+            font-size:30px;
+            top:80px;
+            left:150px;
+        }
+        #user_time_box>.time_box{
+            font-size:25px;
+            position:absolute;
+            right:40px;
+            bottom: 20px;
+            text-align: right;
+            line-height: 40px;
+        }
+        #choice_write_box{
+            font-size:30px;
+            font-weight: bold;
+            text-align: center;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        #review_bottom_box{
+            width:1080px;
+            position:relative;
+        }
+        #review_bottom_box>.review_count_box{
+            font-size:19px;
+            width:1000px;
+            margin:auto;
+        }
+        #review_bottom_box>.review_hit_box{
+            width:1080px;
+            margin-top:10px;
+            padding-bottom:10px;
+
+        }
+        #review_bottom_box>.review_box{
+            width:1080px;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+        .give_review{
+            width:1000px;
+            min-height:110px;
+            position:relative;
+            margin:auto auto 10px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        .give_review>.give_review_profile{
+            width:150px;
+            height:110px;
+            position:absolute;
+        }
+        .give_review>.give_review_profile>img{
+            width:60px;
+            height:60px;
+            border-radius: 30px;
+            position:absolute;
+            top:15px;
+            left:45px;
+        }
+        .give_review>.give_review_profile>div{
+            margin-top: 80px;
+            text-align: center;
+            font-size:20px;
+        }
+        .give_review>.give_review_text{
+            width:700px;
+            position:relative;
+            margin-left: 150px;
+            padding-top:20px;
+            padding-bottom:20px;
+            font-size:18px;
+        }
+        .give_review>.give_review_right{
+            position:absolute;
+            right:25px;
+            text-align: right;
+        }
+        .give_review>.give_review_like{
+            top:15px;
+            font-size:20px;
+        }
+        .give_review>.give_review_like i{
+            color:#EC7064;
+        }
+        
+        .give_review_right i {
+			color: red;
+			vertical-align: middle;
+		}
+		/*
+		.give_review_right .far {
+			display: inline;
+		}
+		
+		.give_review_right.like .far {
+			display: none;
+		}
+		
+		.give_review_right .fas {
+			display: none;
+		}
+		
+		.give_review_right.like .fas {
+			display: inline;
+		} */
+        .give_review>.give_review_date{
+            font-size:15px;
+            bottom:15px;
+        }
+        .give_review>.review_hit{
+            position:absolute;
+            top:-5px;
+            left:10px;
+            text-indent: 20px;
+            color: #EC7064;
+        }
+        .give_review>.review_hit::after{
+            content: "";
+            position:absolute;
+            top:-10px;
+            left:0;
+            border-top:10px solid transparent;
+            border-right:7px solid transparent;
+            border-bottom:15px solid #424242;
+            border-left:7px solid transparent;
+
+        }
+        #review_more_box{
+            width:1000px;
+            height:30px;
+            margin: auto auto 20px;
+        }
+
+        #review_more_box>button{
+            font-size: 20px;
+            font-family: "Noto Sans KR", sans-serif;
+            font-weight: bold;
+            height:30px;
+            width:1000px;
+            background: white;
+            border:none;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }

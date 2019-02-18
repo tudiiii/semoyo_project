@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tools">
+
+	
+	<!-- 예빈 -->
+<select id="getList" resultType="Tool">
+	SELECT no, name
+	FROM tools
+	ORDER BY 1 ASC
+</select>
+
+<!-- 예빈 -->
+<insert id="insert" parameterType="Tool">
+
+insert into tools(no, name)
+values(#{no}, #{name})
+
+
+</insert>
+	
+
+</mapper>
