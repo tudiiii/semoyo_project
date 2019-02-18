@@ -30,4 +30,4 @@ Spring을 기반으로 한 레시피 웹 서비스
 - AJAX를 이용한 서버 측과 클라이언트측간의 비동기식 데이터 교환 기술
 
 ## DB 모델링
-![텍스트](/WebContent/img/db.PNG)
+![DB](/WebContent/img/db.PNG)
